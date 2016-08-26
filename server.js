@@ -6,6 +6,8 @@ import url from 'url';
 import React, { PropTypes } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import express from 'express';
+import https from 'https';
+import http from 'http';
 import webpack from 'webpack';
 
 import config from './webpack.config.dev.js';
@@ -32,6 +34,7 @@ const Html = ({
     </body>
   </html>
 );
+
 Html.propTypes = {
   title: PropTypes.string,
   bundle: PropTypes.string,
@@ -71,6 +74,7 @@ app.use(require('webpack-hot-middleware')(compiler));
 app.get('*', (req, res) => {
   const html = renderDocumentToString({
     bundle: config.output.publicPath + 'app.js',
+    
   });
   res.send(html);
 });
@@ -78,12 +82,49 @@ app.get('*', (req, res) => {
 // NOTE: url.parse can't handle URLs without a protocol explicitly defined. So
 // if we parse '//localhost:8888' it doesn't work. We manually add a protocol even
 // though we are only interested in the port.
-const { port } = url.parse('http:' + config.output.publicPath);
+// const { port } = url.parse('http:' + config.output.publicPath);
+const port = config.__port;
+console.log("port:", port);
 
-app.listen(port, 'localhost', err => {
-  if (err) {
-    console.error(err);
-    return;
+var server = http.createServer(app);
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
   }
-  console.log(`Dev server listening at http://localhost:${port}`);
-});
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+    
+  console.log('Listening on ' + bind);
+}
