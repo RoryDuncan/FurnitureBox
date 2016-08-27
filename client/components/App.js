@@ -17,7 +17,7 @@ export class Home extends React.Component {
     return (
       <div className={cx('page')}>
         <div className={cx('siteTitle')}>
-          <h1>React Static Boilerplate</h1>
+          <h1>Fire Wow</h1>
         </div>
       </div>
     );

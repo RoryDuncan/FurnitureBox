@@ -63,7 +63,7 @@ const compiler = webpack(config);
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
-  publicPath: config.output.publicPath,
+  publicPath: "/"/*config.output.publicPath*/,
 }));
 
 app.use(require('webpack-hot-middleware')(compiler));
@@ -84,7 +84,6 @@ app.get('*', (req, res) => {
 // though we are only interested in the port.
 // const { port } = url.parse('http:' + config.output.publicPath);
 const port = config.__port;
-console.log("port:", port);
 
 var server = http.createServer(app);
 

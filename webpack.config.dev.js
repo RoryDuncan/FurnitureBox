@@ -13,7 +13,16 @@ var rupture = require('rupture');
 var DEV_PORT = process.env.PORT || process.env.DEV_PORT || 8080;
 var hostname = "//localhost:";
 var DEV_HOST = hostname + DEV_PORT + '/';
-var HMR_HOST = DEV_HOST + '__webpack_hmr';
+var HMR_HOST = '/__webpack_hmr';
+
+if (process.env.C9_HOSTNAME) {
+  // hardcoded in, for now..... :x
+  
+  HMR_HOST = `https://value-link-robustrory.c9users.io:${DEV_PORT}/__webpack_hmr`;
+  
+  console.log("webpack.config.dev.js: c9.io environment detected.");
+  console.log(`webpack.config.dev.js: Hot Module Replacement server point:\n ${HMR_HOST}\n\n`);
+}
 
 module.exports = {
   __port: DEV_PORT,
