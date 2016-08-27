@@ -12,6 +12,10 @@ import logo from './react-logo.png';
 // Favicon link is in the template, this just makes webpack package it up for us
 import './favicon.ico';
 
+
+
+
+
 export class Home extends React.Component {
   render() {
     return (

@@ -13,7 +13,7 @@ import webpack from 'webpack';
 import config from './webpack.config.dev.js';
 
 const Html = ({
-  title = 'Rainbow Unicorns',
+  title = 'Value-Link Dev',
   bundle = '/app.js',
   body = '',
   favicon = '',
