@@ -2,26 +2,27 @@ import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
 import classnames from 'classnames/bind';
 import 'normalize.css';
-import '../lib/skeleton.css';
+import './styles/lib/skeleton.css';
 
 // Using CSS Modules so we assign the styles to a variable
-import s from './App.styl';
+import s from './styles/App.styl';
 const cx = classnames.bind(s);
-import logo from './react-logo.png';
+// import logo from './react-logo.png';
 
 // Favicon link is in the template, this just makes webpack package it up for us
 import './favicon.ico';
 
 
-
-
+// Components
+import {AuthRegion} from './Auth.js';
+import {SiteHeader} from './Header.js';
 
 export class Home extends React.Component {
   render() {
     return (
       <div className={cx('page')}>
         <div className={cx('siteTitle')}>
-          <h1>Fire Wow</h1>
+          <h1>Value Link</h1>
         </div>
       </div>
     );
@@ -40,6 +41,20 @@ export class About extends React.Component {
     );
   }
 }
+
+export class Catalog extends React.Component {
+  render() {
+    return (
+      <div className={cx('page')}>
+        <div className={cx('siteTitle')}>
+          <h1>Catalog</h1>
+        </div>
+        <p>Catalog...</p>
+      </div>
+    );
+  }
+}
+
 
 export class NotFound extends React.Component {
   render() {
@@ -63,10 +78,7 @@ export class App extends React.Component {
   render() {
     return (
       <div className={cx('App')}>
-        <nav className={cx('nav')}>
-          <IndexLink to='/' activeClassName={cx('active')}>Home</IndexLink>
-          <Link to='/about' activeClassName={cx('active')}>About</Link>
-        </nav>
+        <SiteHeader />
         {this.props.children}
       </div>
     );

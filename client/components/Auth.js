@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import firebase from './firebase';
 
+// styling
+import classnames from 'classnames/bind';
+import s from './styles/Auth.styl';
+const cx = classnames.bind(s);
+
 // 
 // 
 // 
@@ -32,6 +37,7 @@ class AuthRegion extends React.Component {
   
   update(e){
     let mode = e.target.innerText.toLowerCase();
+    if (mode === "create account") mode = "signup";
     this.setState({mode});
   }
   
@@ -53,7 +59,7 @@ class AuthRegion extends React.Component {
       let name = user.displayName || user.email;
       
       return (
-        <div>
+        <div className={cx("auth-region")}>
           <span className="user">{name}</span> &#8285; <a href="#" onClick={this.signOut}>Sign Out</a>
         </div>
       )
@@ -64,13 +70,16 @@ class AuthRegion extends React.Component {
     if (this.state.mode === "signup") activeRegion = <Signup />
     
     return (
-      <div>
+      <div className={cx("auth-region")}>
+      
         <div className="row">
-          <a href="#" onClick={this.update}>Login</a> &#8285; <a href="#" onClick={this.update}>Signup</a>
+          <a href="#" onClick={this.update}>Login</a> &#8285; <a href="#" onClick={this.update}>Create Account</a>
         </div>
+        
         <div className="row">
           {activeRegion}
         </div>
+        
       </div>
     )
   }
@@ -101,6 +110,7 @@ class Login extends React.Component {
     return (
       <div className="login">
         <h5>Login</h5>
+        <p>Enter your email and password to log into your account.</p>
         <label className="row">Email</label>
         <input className="row" type="text" ref="email"/>
         
@@ -137,14 +147,15 @@ class Signup extends React.Component {
   render(){
     return (
       <div className="signup">
-        <h5>Signup</h5>
+        <h5>Create an Account</h5>
+        <p>Enter the email and password you would like to create your account with.</p>
         <label className="row">Email</label>
         <input className="row" type="text" ref="email" />
         
         <label className="row">Password</label>
         <input className="row" type="password" ref="password" />
         <div  className="row">
-          <button onClick={this.signup}>Signup</button>
+          <button onClick={this.signup}>Create Account</button>
         </div>
       </div>
     )
