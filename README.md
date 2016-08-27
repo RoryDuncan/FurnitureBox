@@ -6,10 +6,11 @@
 
 1. Clone Repository
   
-2. Install Dependencies
-  ```
-  $ npm install
-  ```
+2.  Install Dependencies
+    
+    ```
+    $ npm install
+    ```
 
 ## Create Static Build
   
