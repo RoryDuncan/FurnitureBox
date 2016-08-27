@@ -17,6 +17,8 @@ import './favicon.ico';
 import {AuthRegion} from './Auth.js';
 import {SiteHeader} from './Header.js';
 
+
+// Pages as Classes
 export class Home extends React.Component {
   render() {
     return (

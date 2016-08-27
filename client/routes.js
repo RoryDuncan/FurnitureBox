@@ -11,8 +11,8 @@ export const routes = (
   <Route path='/' component={App}>
     <IndexRoute title='ValueLink' component={Home} />
     
-    <Route path='catalog' title={title("Catalog")} component={Catalog} />
     <Route path='about' title={title("About")} component={About} />
+    <Route path='catalog' title={title("Catalog")} component={Catalog} />
     <Route path='faq'   title={title("FAQ")} component={NotFound} />
     <Route path='contact' title={title("Contact")} component={NotFound} />
     <Route path='account' title={title("Account")} component={NotFound} />
