@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
 import classnames from 'classnames/bind';
 import 'normalize.css';
+import '../lib/skeleton.css';
 
 // Using CSS Modules so we assign the styles to a variable
 import s from './App.styl';
@@ -16,15 +17,8 @@ export class Home extends React.Component {
     return (
       <div className={cx('page')}>
         <div className={cx('siteTitle')}>
-          <img src={logo} alt='React Logo' />
           <h1>React Static Boilerplate</h1>
         </div>
-        <p>Why React static?</p>
-        <ul>
-          <li><span className={s.hl}>Dev</span> friendly</li>
-          <li><span className={cx('hl')}>User</span> friendly</li>
-          <li><span className={cx('hl')}>SEO</span> friendly</li>
-        </ul>
       </div>
     );
   }
