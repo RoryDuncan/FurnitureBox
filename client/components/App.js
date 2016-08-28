@@ -13,13 +13,14 @@ const cx = classnames.bind(s);
 import './favicon.ico';
 
 
-// Components
+// Sub Components
 import {AuthRegion} from './Auth.js';
 import {SiteHeader} from './Header.js';
+import {Catalog, CollectionList} from './Catalog.js';
 
 
 // Pages as Classes
-export class Home extends React.Component {
+export class HomePage extends React.Component {
   render() {
     return (
       <div className={cx('page')}>
@@ -31,7 +32,7 @@ export class Home extends React.Component {
   }
 }
 
-export class About extends React.Component {
+export class AboutPage extends React.Component {
   render() {
     return (
       <div className={cx('page')}>
@@ -44,21 +45,35 @@ export class About extends React.Component {
   }
 }
 
-export class Catalog extends React.Component {
+export class CatalogPage extends React.Component {
   render() {
     return (
       <div className={cx('page')}>
         <div className={cx('siteTitle')}>
           <h1>Catalog</h1>
         </div>
-        <p>Catalog...</p>
+        <Catalog />
+      </div>
+    );
+  }
+}
+
+export class CollectionsPage extends React.Component {
+  render() {
+    return (
+      <div className={cx('page')}>
+        <div className={cx('siteTitle')}>
+          <h1>Collections</h1>
+        </div>
+        <CollectionList />
       </div>
     );
   }
 }
 
 
-export class NotFound extends React.Component {
+
+export class NotFoundPage extends React.Component {
   render() {
     return (
       <div className={cx('page')}>

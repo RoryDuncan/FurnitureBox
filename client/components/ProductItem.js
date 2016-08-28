@@ -7,7 +7,7 @@ import classnames from 'classnames/bind';
 import s from './styles/ProductItem.styl';
 const cx = classnames.bind(s);
 
-class ProductItem extends React.Component {
+export class ProductItem extends React.Component {
   
   constructor() {
     super();
@@ -30,8 +30,13 @@ class ProductItem extends React.Component {
       "in-cart": this.state.inCart
     });
     
+    let productClasses = cx({
+      "product": true,
+      "collection-item": this.props.listed
+    })
+    
     return (
-      <div className={cx("product")}>
+      <div className={productClasses}>
         <img src={this.props.thumb} />
         <div className={cx("details")}>
           <div className={cx("name")}>{this.props.name}</div>
@@ -49,7 +54,7 @@ class ProductItem extends React.Component {
 }
 
 // todo
-ProductItem.propTypes = {
+/*ProductItem.propTypes = {
   id: React.propTypes.String,
   name: React.propTypes.String
-}
+}*/
