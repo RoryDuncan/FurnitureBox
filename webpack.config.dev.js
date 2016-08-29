@@ -54,6 +54,10 @@ module.exports = {
         include: path.join(__dirname, 'client'),
       },
       {
+        test: /\.json$/,
+        loaders: ['json-loader']
+      },
+      {
         test: /\.css$/,
         loaders: ['style', 'css'],
       },
