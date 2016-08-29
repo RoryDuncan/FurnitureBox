@@ -18,6 +18,8 @@ import {AuthRegion} from './Auth.js';
 import {SiteHeader} from './Header.js';
 import {Catalog, CollectionList} from './Catalog.js';
 
+// Data
+import firebase from './firebase.js';
 
 // Pages as Classes
 export class HomePage extends React.Component {

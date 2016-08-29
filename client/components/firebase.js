@@ -11,5 +11,6 @@ const config = {
   storageBucket: "value-link.appspot.com"
 };
 
+var fireApp = firebase.initializeApp(config);
 
-export default firebase.initializeApp(config);
+export default fireApp;

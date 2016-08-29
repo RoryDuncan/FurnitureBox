@@ -16,10 +16,6 @@ class Collection extends React.Component {
     super();
   }
   
-  componentWillMount() {
-
-  }
-  
   render() {
     let slug = `/collections/${this.props.name}`;
     return (
@@ -38,11 +34,5 @@ class Collection extends React.Component {
     )
   }
 }
-
-// todo
-// Collection.propTypes = {
-//   name: React.propTypes.String
-// }
-
 
 export default Collection;

@@ -13,7 +13,8 @@
     "start:dev": "babel-node ./server.js",
     "start": "npm run start:dev",
     "build:static": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
-    "build": "npm run clean && npm run build:static"
+    "build": "npm run clean && npm run build:static",
+    "update": "node ./scripts/retrieve-data.js"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
     "file-loader": "^0.8.5",
     "firebase": "^3.3.0",
     "history": "^2.1.1",
+    "jsonfile": "^2.3.1",
     "normalize.css": "^4.1.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",

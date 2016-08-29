@@ -1,0 +1,23 @@
+{
+  "default": {
+    "description": "Lorum ipsum",
+    "items": [
+      {
+        "description": "Lorum Ipsum",
+        "id": 123,
+        "name": "Bekant Desk",
+        "thumb": "http://placehold.it/320x250"
+      }
+    ]
+  },
+  "floral": {
+    "description": "Lorum Ipsum",
+    "items": [
+      {
+        "id": 124,
+        "name": "Gallant Desk",
+        "thumb": "http://placehold.it/320x250"
+      }
+    ]
+  }
+}
