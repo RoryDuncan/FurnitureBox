@@ -34,6 +34,9 @@ export class Navigation extends React.Component {
             <Link to='/catalog' activeClassName={cx('active')}>Catalog</Link>
           </li>
           <li>
+            <Link to='/collections' activeClassName={cx('active')}>Collections</Link>
+          </li>
+          <li>
             <Link to='/faq' activeClassName={cx('active')}>FAQ</Link>
           </li>
           <li>

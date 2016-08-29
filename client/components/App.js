@@ -16,7 +16,8 @@ import './favicon.ico';
 // Sub Components
 import {AuthRegion} from './Auth.js';
 import {SiteHeader} from './Header.js';
-import {Catalog, CollectionList} from './Catalog.js';
+import {Catalog} from './Catalog.js';
+import {RenderedCollectionDetails} from './Collection.js';
 
 // Data
 import firebase from './firebase.js';
@@ -67,7 +68,7 @@ export class CollectionsPage extends React.Component {
         <div className={cx('siteTitle')}>
           <h1>Collections</h1>
         </div>
-        <CollectionList />
+        {RenderedCollectionDetails}
       </div>
     );
   }
