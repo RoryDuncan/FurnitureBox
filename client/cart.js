@@ -9,17 +9,28 @@ export const ShoppingCart = () => {
   return this;
 };
 
-
+//
+//
 ShoppingCart.prototype.addItem = (id) => {
   
 };
 
-ShoppingCart.prototype.removeItem = () => {};
+//
+//
+ShoppingCart.prototype.removeItem = (id) => {};
 
-ShoppingCart.prototype.viewCart = () => {};
+//
+//
+ShoppingCart.prototype.getCartItems = () => {};
 
+//
+//
 ShoppingCart.prototype.clear = () => {};
 
-ShoppingCart.prototype.changeQuantity = () => {};
+//
+//
+ShoppingCart.prototype.changeQuantity = (id, val) => {};
 
+//
+//
 ShoppingCart.prototype.checkout = () => {};
