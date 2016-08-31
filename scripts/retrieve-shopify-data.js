@@ -3,7 +3,7 @@ var json = require('jsonfile');
 var ShopifyBuy = require('shopify-buy').default;
 var path = require('path');
 
-// Initialize Firebase
+// Initialize config
 
 var config = {
   apiKey: '394e2c0a1422b7f78bc5942ac33fd132',
