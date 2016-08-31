@@ -14,7 +14,7 @@
     "start": "npm run start:dev",
     "build:static": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "npm run clean && npm run build:static",
-    "update": "node ./scripts/retrieve-data.js"
+    "update": "node ./scripts/retrieve-shopify-data.js"
   },
   "repository": {
     "type": "git",
