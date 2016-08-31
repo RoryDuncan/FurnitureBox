@@ -1,23 +1,84 @@
-{
-  "default": {
-    "description": "Lorum ipsum",
-    "items": [
-      {
-        "description": "Lorum Ipsum",
-        "id": 123,
-        "name": "Bekant Desk",
-        "thumb": "http://placehold.it/320x250"
+[
+  {
+    "attrs": {
+      "collection_id": 281049985,
+      "updated_at": "2016-08-31T11:21:47-07:00",
+      "body_html": "A fancy, orange-and-red theme.",
+      "handle": "sunrise",
+      "image": null,
+      "title": "Sunrise",
+      "sort_order": "alpha-asc",
+      "published_at": "2016-08-31T11:21:47-07:00"
+    },
+    "shopClient": {
+      "config": {
+        "apiKey": "394e2c0a1422b7f78bc5942ac33fd132",
+        "appId": "6",
+        "domain": "rory-value-link.myshopify.com"
+      },
+      "shadowedSerializers": {},
+      "shadowedAdapters": {}
+    },
+    "adapter": {
+      "config": {
+        "apiKey": "394e2c0a1422b7f78bc5942ac33fd132",
+        "appId": "6",
+        "domain": "rory-value-link.myshopify.com"
       }
-    ]
+    },
+    "serializer": {
+      "config": {
+        "apiKey": "394e2c0a1422b7f78bc5942ac33fd132",
+        "appId": "6",
+        "domain": "rory-value-link.myshopify.com"
+      }
+    },
+    "type": "collections",
+    "config": {
+      "apiKey": "394e2c0a1422b7f78bc5942ac33fd132",
+      "appId": "6",
+      "domain": "rory-value-link.myshopify.com"
+    }
   },
-  "floral": {
-    "description": "Lorum Ipsum",
-    "items": [
-      {
-        "id": 124,
-        "name": "Gallant Desk",
-        "thumb": "http://placehold.it/320x250"
+  {
+    "attrs": {
+      "collection_id": 281034049,
+      "updated_at": "2016-08-31T11:06:21-07:00",
+      "body_html": null,
+      "handle": "frontpage",
+      "image": null,
+      "title": "Home page",
+      "sort_order": "alpha-asc",
+      "published_at": "2016-08-31T11:06:21-07:00"
+    },
+    "shopClient": {
+      "config": {
+        "apiKey": "394e2c0a1422b7f78bc5942ac33fd132",
+        "appId": "6",
+        "domain": "rory-value-link.myshopify.com"
+      },
+      "shadowedSerializers": {},
+      "shadowedAdapters": {}
+    },
+    "adapter": {
+      "config": {
+        "apiKey": "394e2c0a1422b7f78bc5942ac33fd132",
+        "appId": "6",
+        "domain": "rory-value-link.myshopify.com"
       }
-    ]
+    },
+    "serializer": {
+      "config": {
+        "apiKey": "394e2c0a1422b7f78bc5942ac33fd132",
+        "appId": "6",
+        "domain": "rory-value-link.myshopify.com"
+      }
+    },
+    "type": "collections",
+    "config": {
+      "apiKey": "394e2c0a1422b7f78bc5942ac33fd132",
+      "appId": "6",
+      "domain": "rory-value-link.myshopify.com"
+    }
   }
-}
+]
