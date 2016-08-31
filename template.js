@@ -6,8 +6,10 @@ const Html = (props) => (
       <meta charSet='utf-8' />
       <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
       <meta name='viewport' content='width=device-width, minimum-scale=1.0' />
-      <link rel='stylesheet' href='/app.css' />
       <title>{props.title}</title>
+      <link rel='stylesheet' href='/app.css' />
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" />
     </head>
     <body>
       <div id='root' dangerouslySetInnerHTML={{ __html: props.body }} />

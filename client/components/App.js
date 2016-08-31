@@ -17,10 +17,14 @@ import './favicon.ico';
 import {AuthRegion} from './Auth.js';
 import {SiteHeader} from './Header.js';
 import {Catalog} from './Catalog.js';
-import {RenderedCollectionDetails} from './Collection.js';
+import {
+  RenderedCollectionDetails,
+  CollectionDescription,
+  Collection
+} from './Collection.js';
 
 // Data
-import firebase from './firebase.js';
+import collections from '../collections.json';
 
 // Pages as Classes
 export class HomePage extends React.Component {
@@ -63,17 +67,48 @@ export class CatalogPage extends React.Component {
 
 export class CollectionsPage extends React.Component {
   render() {
+
+    if (!!this.props.children) {
+
     return (
       <div className={cx('page')}>
-        <div className={cx('siteTitle')}>
-          <h1>Collections</h1>
-        </div>
-        {RenderedCollectionDetails}
+        {this.props.children}
       </div>
     );
+    }
+    else {
+      return (
+        <div className={cx('page')}>
+          <div className={cx('siteTitle')}>
+            <h1>Collections</h1>
+          </div>
+          {RenderedCollectionDetails}
+        </div>
+      );
+    }
   }
 }
 
+export const collectionPages = {};
+
+Object.keys(collections).map((name, i) => {
+  
+  let props = collections[name];
+  
+  collectionPages[name] = (parameterProps) => {
+    return (
+      <div className={cx('page')}>
+        <div className={cx('siteTitle')}>
+          <h1>The {name} Collection</h1>
+        </div>
+        <CollectionDescription name={name} noTitle {...props} />
+        <h2>In this collection:</h2>
+        <Collection name={name} items={props.items} />
+      </div>
+    )
+  }
+  
+});
 
 
 export class NotFoundPage extends React.Component {

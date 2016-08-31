@@ -9,10 +9,12 @@ const cx = classnames.bind(s);
 
 
 export class SiteHeader extends React.Component {
-  
   render(){
     return (
       <div className={cx("site-header")}>
+        <div className={cx("brand")}>
+          <i className="material-icons">widgets</i> Value-Link
+        </div>
         <Navigation />
       </div>
     )

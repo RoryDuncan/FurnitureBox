@@ -15,16 +15,10 @@ import {
 } from './Collection.js';
 
 
-
-
-// todo: Shopping Cart component
-
 export class Catalog extends React.Component {
   
   constructor() {
     super();
-    console.log(collections);
-
   }
 
   render(){
