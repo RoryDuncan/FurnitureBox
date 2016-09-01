@@ -25,13 +25,14 @@ const Html = ({
       <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
       <title>{title}</title>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      <link href="//fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet" />
       {favicon ? <link rel='shortcut icon' href={favicon} /> : null}
       {stylesheet ? <link rel='stylesheet' href={stylesheet} /> : null}
     </head>
     <body>
       <div id='root' dangerouslySetInnerHTML={{ __html: body }} />
+      <script src="//sdks.shopifycdn.com/js-buy-sdk/latest/shopify-buy.polyfilled.globals.min.js"></script>
       <script src={bundle} />
     </body>
   </html>

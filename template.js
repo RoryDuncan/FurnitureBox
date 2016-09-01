@@ -8,11 +8,12 @@ const Html = (props) => (
       <meta name='viewport' content='width=device-width, minimum-scale=1.0' />
       <title>{props.title}</title>
       <link rel='stylesheet' href='/app.css' />
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      <link href="//fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet" />
     </head>
     <body>
       <div id='root' dangerouslySetInnerHTML={{ __html: props.body }} />
+      <script src="//sdks.shopifycdn.com/js-buy-sdk/latest/shopify-buy.polyfilled.globals.min.js"></script>
       <script src='/app.js' />
     </body>
   </html>

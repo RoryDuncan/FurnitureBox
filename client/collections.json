@@ -46,43 +46,43 @@
       "products": [
         {
           "attrs": {
-            "product_id": 7702419393,
-            "created_at": "2016-08-31T17:14:27-07:00",
-            "updated_at": "2016-08-31T17:14:27-07:00",
-            "body_html": "<p>Authentic letterpress humblebrag neutra. Pabst keytar etsy twee, mustache humblebrag shoreditch banjo bespoke dreamcatcher. Leggings artisan gentrify authentic, salvia PBR&amp;B tilde gluten-free lo-fi hashtag photo booth franzen chillwave pug iPhone. Small batch XOXO chillwave synth. Ethical brunch etsy hammock taxidermy blog, affogato pork belly ugh XOXO. Tote bag swag church-key, humblebrag truffaut ethical forage intelligentsia meh mumblecore cornhole meggings +1. Vinyl celiac squid sustainable.</p>",
-            "handle": "gallant-desk",
+            "product_id": 7696826753,
+            "created_at": "2016-08-31T11:37:03-07:00",
+            "updated_at": "2016-09-01T03:12:00-07:00",
+            "body_html": "<p>Leggings artisan gentrify authentic, salvia PBR&amp;B tilde gluten-free lo-fi hashtag photo booth franzen chillwave pug iPhone. Small batch XOXO chillwave synth.</p>",
+            "handle": "bekant-desk",
             "product_type": "Desk",
-            "title": "Gallant Desk",
+            "title": "Bekant Desk",
             "vendor": "rory-value-link",
             "available": true,
             "tags": "",
-            "published_at": "2016-08-31T17:14:27-07:00",
+            "published_at": "2016-08-31T11:37:03-07:00",
             "images": [
               {
-                "id": 16453342657,
-                "created_at": "2016-08-31T17:14:20-07:00",
+                "id": 16440258753,
+                "created_at": "2016-08-31T11:37:04-07:00",
                 "position": 1,
-                "updated_at": "2016-08-31T17:14:20-07:00",
-                "product_id": 7702419393,
-                "src": "https://cdn.shopify.com/s/files/1/1465/6948/products/a3972325522_10_a8c32184-a6fb-4916-979e-d264746c3425.jpg?v=1472688860",
+                "updated_at": "2016-09-01T02:59:25-07:00",
+                "product_id": 7696826753,
+                "src": "https://cdn.shopify.com/s/files/1/1465/6948/products/a3972325522_10.jpg?v=1472723965",
                 "variant_ids": []
               }
             ],
             "options": [
               {
-                "id": 9195044161,
+                "id": 9188293505,
                 "name": "Title",
-                "product_id": 7702419393,
+                "product_id": 7696826753,
                 "position": 1
               }
             ],
             "variants": [
               {
-                "id": 24757890689,
+                "id": 24741062209,
                 "title": "Default Title",
                 "option_values": [
                   {
-                    "option_id": 9195044161,
+                    "option_id": 9188293505,
                     "name": "Title",
                     "value": "Default Title"
                   }
@@ -96,8 +96,8 @@
                 "taxable": true,
                 "position": 1,
                 "available": true,
-                "created_at": "2016-08-31T17:14:18-07:00",
-                "updated_at": "2016-08-31T17:14:18-07:00"
+                "created_at": "2016-08-31T11:37:03-07:00",
+                "updated_at": "2016-08-31T11:37:03-07:00"
               }
             ]
           },
@@ -133,43 +133,43 @@
         },
         {
           "attrs": {
-            "product_id": 7696826753,
-            "created_at": "2016-08-31T11:37:03-07:00",
-            "updated_at": "2016-08-31T17:01:10-07:00",
-            "body_html": "<p>Authentic letterpress humblebrag neutra. Pabst keytar etsy twee, mustache humblebrag shoreditch banjo bespoke dreamcatcher. Leggings artisan gentrify authentic, salvia PBR&amp;B tilde gluten-free lo-fi hashtag photo booth franzen chillwave pug iPhone. Small batch XOXO chillwave synth. Ethical brunch etsy hammock taxidermy blog, affogato pork belly ugh XOXO. Tote bag swag church-key, humblebrag truffaut ethical forage intelligentsia meh mumblecore cornhole meggings +1. Vinyl celiac squid sustainable.</p>",
-            "handle": "bekant-desk",
+            "product_id": 7702419393,
+            "created_at": "2016-08-31T17:14:27-07:00",
+            "updated_at": "2016-09-01T03:11:46-07:00",
+            "body_html": "<p>Authentic letterpress humblebrag neutra. Pabst keytar etsy twee, mustache humblebrag shoreditch banjo bespoke dreamcatcher.</p>",
+            "handle": "gallant-desk",
             "product_type": "Desk",
-            "title": "Bekant Desk",
+            "title": "Gallant Desk",
             "vendor": "rory-value-link",
             "available": true,
             "tags": "",
-            "published_at": "2016-08-31T11:37:03-07:00",
+            "published_at": "2016-08-31T17:14:27-07:00",
             "images": [
               {
-                "id": 16440258753,
-                "created_at": "2016-08-31T11:37:04-07:00",
+                "id": 16453342657,
+                "created_at": "2016-08-31T17:14:20-07:00",
                 "position": 1,
-                "updated_at": "2016-08-31T11:37:04-07:00",
-                "product_id": 7696826753,
-                "src": "https://cdn.shopify.com/s/files/1/1465/6948/products/a3972325522_10.jpg?v=1472668624",
+                "updated_at": "2016-09-01T03:11:02-07:00",
+                "product_id": 7702419393,
+                "src": "https://cdn.shopify.com/s/files/1/1465/6948/products/a3972325522_10_a8c32184-a6fb-4916-979e-d264746c3425.jpg?v=1472724662",
                 "variant_ids": []
               }
             ],
             "options": [
               {
-                "id": 9188293505,
+                "id": 9195044161,
                 "name": "Title",
-                "product_id": 7696826753,
+                "product_id": 7702419393,
                 "position": 1
               }
             ],
             "variants": [
               {
-                "id": 24741062209,
+                "id": 24757890689,
                 "title": "Default Title",
                 "option_values": [
                   {
-                    "option_id": 9188293505,
+                    "option_id": 9195044161,
                     "name": "Title",
                     "value": "Default Title"
                   }
@@ -183,8 +183,8 @@
                 "taxable": true,
                 "position": 1,
                 "available": true,
-                "created_at": "2016-08-31T11:37:03-07:00",
-                "updated_at": "2016-08-31T11:37:03-07:00"
+                "created_at": "2016-08-31T17:14:18-07:00",
+                "updated_at": "2016-08-31T17:14:18-07:00"
               }
             ]
           },
@@ -263,43 +263,43 @@
       "products": [
         {
           "attrs": {
-            "product_id": 7702419393,
-            "created_at": "2016-08-31T17:14:27-07:00",
-            "updated_at": "2016-08-31T17:14:27-07:00",
-            "body_html": "<p>Authentic letterpress humblebrag neutra. Pabst keytar etsy twee, mustache humblebrag shoreditch banjo bespoke dreamcatcher. Leggings artisan gentrify authentic, salvia PBR&amp;B tilde gluten-free lo-fi hashtag photo booth franzen chillwave pug iPhone. Small batch XOXO chillwave synth. Ethical brunch etsy hammock taxidermy blog, affogato pork belly ugh XOXO. Tote bag swag church-key, humblebrag truffaut ethical forage intelligentsia meh mumblecore cornhole meggings +1. Vinyl celiac squid sustainable.</p>",
-            "handle": "gallant-desk",
+            "product_id": 7696826753,
+            "created_at": "2016-08-31T11:37:03-07:00",
+            "updated_at": "2016-09-01T03:12:00-07:00",
+            "body_html": "<p>Leggings artisan gentrify authentic, salvia PBR&amp;B tilde gluten-free lo-fi hashtag photo booth franzen chillwave pug iPhone. Small batch XOXO chillwave synth.</p>",
+            "handle": "bekant-desk",
             "product_type": "Desk",
-            "title": "Gallant Desk",
+            "title": "Bekant Desk",
             "vendor": "rory-value-link",
             "available": true,
             "tags": "",
-            "published_at": "2016-08-31T17:14:27-07:00",
+            "published_at": "2016-08-31T11:37:03-07:00",
             "images": [
               {
-                "id": 16453342657,
-                "created_at": "2016-08-31T17:14:20-07:00",
+                "id": 16440258753,
+                "created_at": "2016-08-31T11:37:04-07:00",
                 "position": 1,
-                "updated_at": "2016-08-31T17:14:20-07:00",
-                "product_id": 7702419393,
-                "src": "https://cdn.shopify.com/s/files/1/1465/6948/products/a3972325522_10_a8c32184-a6fb-4916-979e-d264746c3425.jpg?v=1472688860",
+                "updated_at": "2016-09-01T02:59:25-07:00",
+                "product_id": 7696826753,
+                "src": "https://cdn.shopify.com/s/files/1/1465/6948/products/a3972325522_10.jpg?v=1472723965",
                 "variant_ids": []
               }
             ],
             "options": [
               {
-                "id": 9195044161,
+                "id": 9188293505,
                 "name": "Title",
-                "product_id": 7702419393,
+                "product_id": 7696826753,
                 "position": 1
               }
             ],
             "variants": [
               {
-                "id": 24757890689,
+                "id": 24741062209,
                 "title": "Default Title",
                 "option_values": [
                   {
-                    "option_id": 9195044161,
+                    "option_id": 9188293505,
                     "name": "Title",
                     "value": "Default Title"
                   }
@@ -313,8 +313,8 @@
                 "taxable": true,
                 "position": 1,
                 "available": true,
-                "created_at": "2016-08-31T17:14:18-07:00",
-                "updated_at": "2016-08-31T17:14:18-07:00"
+                "created_at": "2016-08-31T11:37:03-07:00",
+                "updated_at": "2016-08-31T11:37:03-07:00"
               }
             ]
           },
@@ -350,43 +350,43 @@
         },
         {
           "attrs": {
-            "product_id": 7696826753,
-            "created_at": "2016-08-31T11:37:03-07:00",
-            "updated_at": "2016-08-31T17:01:10-07:00",
-            "body_html": "<p>Authentic letterpress humblebrag neutra. Pabst keytar etsy twee, mustache humblebrag shoreditch banjo bespoke dreamcatcher. Leggings artisan gentrify authentic, salvia PBR&amp;B tilde gluten-free lo-fi hashtag photo booth franzen chillwave pug iPhone. Small batch XOXO chillwave synth. Ethical brunch etsy hammock taxidermy blog, affogato pork belly ugh XOXO. Tote bag swag church-key, humblebrag truffaut ethical forage intelligentsia meh mumblecore cornhole meggings +1. Vinyl celiac squid sustainable.</p>",
-            "handle": "bekant-desk",
+            "product_id": 7702419393,
+            "created_at": "2016-08-31T17:14:27-07:00",
+            "updated_at": "2016-09-01T03:11:46-07:00",
+            "body_html": "<p>Authentic letterpress humblebrag neutra. Pabst keytar etsy twee, mustache humblebrag shoreditch banjo bespoke dreamcatcher.</p>",
+            "handle": "gallant-desk",
             "product_type": "Desk",
-            "title": "Bekant Desk",
+            "title": "Gallant Desk",
             "vendor": "rory-value-link",
             "available": true,
             "tags": "",
-            "published_at": "2016-08-31T11:37:03-07:00",
+            "published_at": "2016-08-31T17:14:27-07:00",
             "images": [
               {
-                "id": 16440258753,
-                "created_at": "2016-08-31T11:37:04-07:00",
+                "id": 16453342657,
+                "created_at": "2016-08-31T17:14:20-07:00",
                 "position": 1,
-                "updated_at": "2016-08-31T11:37:04-07:00",
-                "product_id": 7696826753,
-                "src": "https://cdn.shopify.com/s/files/1/1465/6948/products/a3972325522_10.jpg?v=1472668624",
+                "updated_at": "2016-09-01T03:11:02-07:00",
+                "product_id": 7702419393,
+                "src": "https://cdn.shopify.com/s/files/1/1465/6948/products/a3972325522_10_a8c32184-a6fb-4916-979e-d264746c3425.jpg?v=1472724662",
                 "variant_ids": []
               }
             ],
             "options": [
               {
-                "id": 9188293505,
+                "id": 9195044161,
                 "name": "Title",
-                "product_id": 7696826753,
+                "product_id": 7702419393,
                 "position": 1
               }
             ],
             "variants": [
               {
-                "id": 24741062209,
+                "id": 24757890689,
                 "title": "Default Title",
                 "option_values": [
                   {
-                    "option_id": 9188293505,
+                    "option_id": 9195044161,
                     "name": "Title",
                     "value": "Default Title"
                   }
@@ -400,8 +400,8 @@
                 "taxable": true,
                 "position": 1,
                 "available": true,
-                "created_at": "2016-08-31T11:37:03-07:00",
-                "updated_at": "2016-08-31T11:37:03-07:00"
+                "created_at": "2016-08-31T17:14:18-07:00",
+                "updated_at": "2016-08-31T17:14:18-07:00"
               }
             ]
           },

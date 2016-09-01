@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import { Link, IndexLink } from 'react-router';
+import ShopifyBuy from 'shopify-buy';
+
 
 // styling
 import classnames from 'classnames/bind';
 import s from './styles/ProductItem.styl';
 const cx = classnames.bind(s);
 
+
+export const ProductImagePlaceHolder = (props) => {
+  let src = ShopifyBuy.NO_IMAGE_URI;
+  return (
+    <img src={src} alt="No image available yet." title="We don't have an image for this product yet. Sorry!" />
+  )
+}
 
 export const ProductImage = (props) => {
 
@@ -32,7 +41,7 @@ export class ProductItem extends React.Component {
   }
   
   addToCart() {
-    console.log(this.props.id, "added to cart");
+    console.log(this.props.attrs.product_id + " was added to the cart");
   }
   
   render() {
@@ -51,13 +60,13 @@ export class ProductItem extends React.Component {
     return (
       <div className={productClasses}>
         <div className={cx("product-image-wrapper")}>
-          {this.props.attrs.images.length > 0 ? <ProductImage {...this.props} /> : false}
+          {this.props.attrs.images.length > 0 ? <ProductImage {...this.props} /> : <ProductImagePlaceHolder />}
         </div>
         <div className={cx("details")}>
           <div className={cx("name")}>{this.props.attrs.title}</div>
           <div className={cx("collection")}>{this.props.collection}</div>
           <div className={cx("description")} dangerouslySetInnerHTML={description} />
-          <div className={cx("price")}>{this.props.price}</div>
+          <div className={cx("price")}>{this.props.attrs.variants[0].price}</div>
           <button 
             className={addToCartButtonClasses}
             onClick={this.addToCart}>Add To Cart</button>
@@ -67,9 +76,3 @@ export class ProductItem extends React.Component {
   }
   
 }
-
-// todo
-/*ProductItem.propTypes = {
-  id: React.propTypes.String,
-  name: React.propTypes.String
-}*/

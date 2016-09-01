@@ -1,36 +1,25 @@
 
+// initialize our config for shopify-buy
 
-export const ShoppingCart = () => {
+import config from '../config/shopify.js';
+import ShopifyBuy from 'shopify-buy';
+
+export const client = ShopifyBuy.buildClient(config);
+
+
+const ShoppingCart = () => {
   
-  if (typeof this !== ShoppingCart) return new ShoppingCart();
-  
-  this.items = [];
-  
+  this.cart = null;
   return this;
+}
+
+
+ShoppingCart.prototype.init = () => {
+  // init shopify cart
+  let p = client.createCart()
+  // return a thenable promise
+  return p.then(function (cart_) {
+    this.cart = cart_;
+    return p;
+  });
 };
-
-//
-//
-ShoppingCart.prototype.addItem = (id) => {
-  
-};
-
-//
-//
-ShoppingCart.prototype.removeItem = (id) => {};
-
-//
-//
-ShoppingCart.prototype.getCartItems = () => {};
-
-//
-//
-ShoppingCart.prototype.clear = () => {};
-
-//
-//
-ShoppingCart.prototype.changeQuantity = (id, val) => {};
-
-//
-//
-ShoppingCart.prototype.checkout = () => {};

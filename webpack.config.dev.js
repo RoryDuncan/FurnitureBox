@@ -40,6 +40,10 @@ module.exports = {
     filename: '[name].js',
     publicPath: "/",
   },
+  
+  externals: {
+    'shopify-buy': 'ShopifyBuy'
+  },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
