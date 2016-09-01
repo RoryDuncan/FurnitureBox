@@ -46,7 +46,7 @@ const getProducts = () => {
     // save our products
     q.then((products) => {
       log(`collection '${handle}' retrieved.`)
-      data.collections[handle].products = products;
+      data.collections[handle].products = products || {};
     }).catch(caughtError)
 
     return q;

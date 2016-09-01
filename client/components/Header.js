@@ -30,10 +30,10 @@ export class Navigation extends React.Component {
             <IndexLink to='/' activeClassName={cx('active')}>Home</IndexLink>
           </li>
           <li>
-            <Link to='/about' activeClassName={cx('active')}>About</Link>
+            <Link to='/shop' activeClassName={cx('active')}>Shop</Link>
           </li>
           <li>
-            <Link to='/catalog' activeClassName={cx('active')}>Catalog</Link>
+            <Link to='/about' activeClassName={cx('active')}>About</Link>
           </li>
           <li>
             <Link to='/collections' activeClassName={cx('active')}>Collections</Link>
@@ -43,9 +43,6 @@ export class Navigation extends React.Component {
           </li>
           <li>
             <Link to='/contact' activeClassName={cx('active')}>Contact</Link>
-          </li>
-          <li>
-            <Link to='/account' activeClassName={cx('active')}>Account</Link>
           </li>
         </ol>
       </nav>

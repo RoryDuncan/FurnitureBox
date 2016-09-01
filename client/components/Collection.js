@@ -11,8 +11,8 @@ const cx = classnames.bind(s);
 import {ProductItem} from './ProductItem.js';
 
 // data
-import collections from '../collections.json';
-
+import data from '../collections.json';
+const collections = data.collections;
 
 
 
@@ -33,8 +33,8 @@ export const Collection = (props) => {
   
   return (
     <div className={cx("collection")}>
-      {props.items.map((item, i) =>{
-        let props = item;
+      {props.products.map((product, i) =>{
+        let props = product;
         return <ProductItem key={i} {...props} listed />
       })}
     </div>
@@ -49,7 +49,7 @@ export const CatalogCollection = (props) => {
     <div className={cx("collection-wrapper")}>
       
       <CollectionTitleLink name={props.name} />
-      <Collection name={props.name} items={props.items}/>
+      <Collection name={props.name} products={props.products}/>
 
     </div>
   )
@@ -93,18 +93,20 @@ export const CollectionDescription = (props) => {
 
 // generate our list of collections
 // 
-export const RenderedCatalog = Object.keys(collections).map((name, i) => {
+export const RenderedCatalog = data.keys.map((name, i) => {
+  let collection = collections[name];
+  
   return (
-    <CatalogCollection key={i} name={name} items={collections[name].items} />
+    <CatalogCollection key={i} name={collection.attrs.title} products={collection.products} />
   )
 });
 
 //
 // 
-export const RenderedCollectionDetails = Object.keys(collections).map((name, i) => {
+export const RenderedCollectionDetails = data.keys.map((name, i) => {
   
   let props = {
-    name: name,
+    name: collections[name].attrs.title,
     description: collections[name].description,
     linked: true
   };

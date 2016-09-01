@@ -8,7 +8,7 @@ import {
   AboutPage,
   HomePage,
   NotFoundPage,
-  CatalogPage,
+  ShopPage,
   CollectionsPage,
   collectionPages
 } from './components/App.js';
@@ -30,7 +30,7 @@ export const routes = (
     <IndexRoute title='ValueLink' component={HomePage} />
     
     <Route path='about' title={title("About")} component={AboutPage} />
-    <Route path='catalog' title={title("Catalog")} component={CatalogPage} />
+    <Route path='Shop' title={title("Shop")} component={ShopPage} />
     
     <Route path='faq'   title={title("FAQ")} component={NotFoundPage} />
     <Route path='contact' title={title("Contact")} component={NotFoundPage} />

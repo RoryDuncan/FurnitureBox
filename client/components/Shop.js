@@ -1,11 +1,10 @@
 import React from 'react';
-import ReactDOM from "react-dom";
-import { Link, IndexLink } from 'react-router';
+import { Link } from 'react-router';
 import collections from '../collections.json'
 
 // styling
 import classnames from 'classnames/bind';
-import s from './styles/Catalog.styl';
+import s from './styles/Shop.styl';
 const cx = classnames.bind(s);
 
 // subcomponents
@@ -24,7 +23,7 @@ export class Catalog extends React.Component {
   render(){
     return (
       <div className={cx("catalog")}>
-        {RenderedCatalog}
+      {RenderedCatalog}
       </div>
     )
   }

@@ -16,7 +16,7 @@ import './favicon.ico';
 // Sub Components
 import {AuthRegion} from './Auth.js';
 import {SiteHeader} from './Header.js';
-import {Catalog} from './Catalog.js';
+import {Catalog} from './Shop.js';
 import {
   RenderedCollectionDetails,
   CollectionDescription,
@@ -52,12 +52,12 @@ export class AboutPage extends React.Component {
   }
 }
 
-export class CatalogPage extends React.Component {
+export class ShopPage extends React.Component {
   render() {
     return (
       <div className={cx('page')}>
         <div className={cx('siteTitle')}>
-          <h1>Catalog</h1>
+          <h1>Shop</h1>
         </div>
         <Catalog />
       </div>
