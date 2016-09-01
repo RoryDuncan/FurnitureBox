@@ -7,6 +7,18 @@ import classnames from 'classnames/bind';
 import s from './styles/ProductItem.styl';
 const cx = classnames.bind(s);
 
+
+export const ProductImage = (props) => {
+
+  let src = props.attrs.images[0].src;
+
+  return (
+    <img  className={cx("product-image")} 
+          src={src} alt={`${props.attrs.title} Image`}
+          title={props.attrs.title} />
+  )
+}
+
 export class ProductItem extends React.Component {
   
   constructor() {
@@ -35,13 +47,16 @@ export class ProductItem extends React.Component {
       "collection-item": this.props.listed
     })
     
+    let description = {__html: this.props.attrs.body_html};
     return (
       <div className={productClasses}>
-        <img src={this.props.thumb} />
+        <div className={cx("product-image-wrapper")}>
+          {this.props.attrs.images.length > 0 ? <ProductImage {...this.props} /> : false}
+        </div>
         <div className={cx("details")}>
-          <div className={cx("name")}>{this.props.name}</div>
+          <div className={cx("name")}>{this.props.attrs.title}</div>
           <div className={cx("collection")}>{this.props.collection}</div>
-          <div className={cx("description")}>{this.props.description}</div>
+          <div className={cx("description")} dangerouslySetInnerHTML={description} />
           <div className={cx("price")}>{this.props.price}</div>
           <button 
             className={addToCartButtonClasses}

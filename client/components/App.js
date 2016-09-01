@@ -24,7 +24,8 @@ import {
 } from './Collection.js';
 
 // Data
-import collections from '../collections.json';
+import data from '../collections.json';
+const collections = data.collections;
 
 // Pages as Classes
 export class HomePage extends React.Component {
@@ -91,7 +92,7 @@ export class CollectionsPage extends React.Component {
 
 export const collectionPages = {};
 
-Object.keys(collections).map((name, i) => {
+data.keys.map((name, i) => {
   
   let props = collections[name];
   
@@ -99,11 +100,11 @@ Object.keys(collections).map((name, i) => {
     return (
       <div className={cx('page')}>
         <div className={cx('siteTitle')}>
-          <h1>The {name} Collection</h1>
+          <h1>The {props.attrs.title} Collection</h1>
         </div>
-        <CollectionDescription name={name} noTitle {...props} />
+        <CollectionDescription name={props.attrs.title} noTitle {...props} />
         <h2>In this collection:</h2>
-        <Collection name={name} items={props.items} />
+        <Collection name={props.attrs.title} products={props.products} />
       </div>
     )
   }

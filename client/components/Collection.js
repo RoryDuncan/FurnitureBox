@@ -70,12 +70,16 @@ export const CollectionList = () => {
 //
 export const CollectionDescription = (props) => {
 
+  let src = "//placehold.it/1040x420";
+  if (props.attrs.image !== null) {
+    src = props.attrs.image.src;
+  }
+
   return (
     <div className={cx("collection")}>
-      {props.noTitle === true ? false : <h3 className={cx("collection-title")}>{props.name}</h3> }
-      <img className={cx("collection-image")} src="http://placehold.it/850x420" />
-      <p className={cx("description")}>{props.description}</p>
-      <p>More could probably go here...</p>
+      {props.noTitle === true ? false : <h3 className={cx("collection-title")}>{props.attrs.title}</h3> }
+      <img className={cx("collection-image")} src={src} />
+      <div className={cx("description")} dangerouslySetInnerHTML={props.description} />
       {props.linked === true ? 
         <Link to={`/collections/${props.name}`} >Shop the {props.name} collection</Link> 
         : false
@@ -105,12 +109,10 @@ export const RenderedCatalog = data.keys.map((name, i) => {
 // 
 export const RenderedCollectionDetails = data.keys.map((name, i) => {
   
-  let props = {
-    name: collections[name].attrs.title,
-    description: collections[name].description,
-    linked: true
-  };
+  let props = collections[name];
+  props.description = {'__html': collections[name].attrs.body_html};
+
   return (
-    <CollectionDescription key={i} {...props} />
+    <CollectionDescription key={i} linked {...props} />
   )
 });

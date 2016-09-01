@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import collections from './collections.json';
+import data from './collections.json';
+const collections = data.collections;
 
 import { 
   App,
@@ -16,7 +17,7 @@ import {
 const site = "ValueLink"
 const title = (page) => `${site} - ${page}`
 
-const collectionRoutes = Object.keys(collections).map((name, i) =>{
+const collectionRoutes = data.keys.map((name, i) =>{
   return <Route 
     path="/collections/:name" 
     title={title(`${name} Collection`)}
