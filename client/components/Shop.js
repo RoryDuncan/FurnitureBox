@@ -13,7 +13,7 @@ import {
   RenderedCatalog
 } from './Collection.js';
 
-import {ShoppingCart} from './ShoppingCart.js';
+import {ShoppingCart, cart} from './ShoppingCart.js';
 
 export class Catalog extends React.Component {
   
@@ -24,7 +24,8 @@ export class Catalog extends React.Component {
   render(){
     return (
       <div className={cx("catalog")}>
-      {ShoppingCart}
+      <ShoppingCart />
+      <hr />
       {RenderedCatalog}
       </div>
     )

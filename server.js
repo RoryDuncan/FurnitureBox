@@ -32,7 +32,7 @@ const Html = ({
     </head>
     <body>
       <div id='root' dangerouslySetInnerHTML={{ __html: body }} />
-      <script src="//sdks.shopifycdn.com/js-buy-sdk/latest/shopify-buy.polyfilled.globals.min.js"></script>
+      <script src="//sdks.shopifycdn.com/js-buy-sdk/latest/shopify-buy.polyfilled.globals.js"></script>
       <script src={bundle} />
     </body>
   </html>
