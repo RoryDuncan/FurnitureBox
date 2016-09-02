@@ -11,14 +11,7 @@ const cx = classnames.bind(s);
 import {client, ShoppingCartModel} from '../cart.js';
 
 export let cart = new ShoppingCartModel();
-
-
-// AddToCart buttons are not children of the ShoppingCart component, so we can't
-// trickle-down state Also, I considered whether I should use event listening to
-// trigger this, but decided if this is a one-off scenario that this solution is
-// fine. (it works without consequence, as well.)
-let addToCartButtonsNeedingReadyState = [];
-
+cart.init()
 
 //
 //
@@ -28,10 +21,12 @@ export class AddToCartButton extends React.Component {
     
     this.addToCart = this.addToCart.bind(this);
     this.removeFromCart = this.removeFromCart.bind(this);
+    this.update = this.update.bind(this);
     
     this.state = {
       cartReady: cart.ready,
-      inCart: false
+      inCart: false,
+      lineId: null
     }
     
     
@@ -47,20 +42,49 @@ export class AddToCartButton extends React.Component {
     }
   }
   
+  update() {
+    console.log("AddToCartButton::update");
+    if (this.state.inCart) {
+
+      let product_id = this.props.attrs.product_id;
+      // if we find this item, it means the product is still in the cart.
+      let item = cart.getCartItems().filter((lineItem) => {
+        return (lineItem.attrs.product_id === product_id)
+      })[0];
+      
+      if (!item) {
+        cart.events.removeListener("change", this.update)
+        this.setState({inCart: false, lineId: null})
+      }
+
+    }
+  }
+  
   addToCart() {
 
-    
     let that = this;
     let product_id = this.props.attrs.product_id;
     
     cart.addItem(product_id).then(() => {
-      console.log("AddToCartButton::", product_id + " was added to the cart");
-      that.setState({inCart: true});
+      
+      let lineId = cart.getCartItems().filter((el, i) => {
+        console.log(el.attrs.product_id);
+        if (el.attrs.product_id === product_id) return true;
+      })
+      
+      lineId = lineId[0].id;
+      
+      // begin watching for changes in the cart
+      cart.events.on("change", this.update)
+      
+      that.setState({inCart: true, lineId});
     });
   }
   
   removeFromCart() {
-    console.error("AddToCartButton::removeFromCart Not Implemented.")
+    if (this.state.lineId) {
+      cart.removeItem(this.state.lineId);
+    }
   }
   
   render() {
@@ -88,12 +112,12 @@ export class AddToCartButton extends React.Component {
 //
 //
 export class ShoppingCart extends React.Component {
-  
+
   constructor() {
     super();
     let that = this;
     this.state = {
-      ready: false,
+      ready: !!cart.ready,
       cartItems: [],
       active: false
     };
@@ -101,15 +125,23 @@ export class ShoppingCart extends React.Component {
     this.update = this.update.bind(this);
     this.toggle = this.toggle.bind(this);
     this.checkout = this.checkout.bind(this);
-    cart.init()
+    this.onCartReady = this.onCartReady.bind(this);
     
-    
-    cart.events.on("ready", () => {
-      console.log("cart ready");
-      that.setState({ready: true});    
-    })
-    
+  }
+  
+  onCartReady() {
+    this.setState({ready: true});
+  }
+  
+  componentDidMount() {
+    let that = this;
+    cart.events.on("ready", this.onCartReady)
     cart.events.on("change", this.update);
+  }
+  
+  componentWillUnMount() {
+    cart.events.removeListener("change", this.update);
+    cart.events.removeListener("ready", this.onCartReady);
   }
   
   toggle() {
@@ -117,13 +149,11 @@ export class ShoppingCart extends React.Component {
   }
   
   update() {
-    console.log("cart changed -> <ShoppingCart /> updated")
-    console.log("line item:", cart.getCartItems()[0]);
     this.setState({cartItems: cart.getCartItems()})
   }
   
   checkout() {
-    
+    console.log("Time to Checkout!")
   }
   
   render() {
@@ -131,14 +161,22 @@ export class ShoppingCart extends React.Component {
     let innerContent = <p> Working... </p>
     let cartItemCount = null;
     let checkoutButton = null;
-    let cartItemClasses = {
-      "cart-items-wrapper": true, 
+    let subtotal = null;
+    let cartWrapperClasses = {
+      "shopping-cart-wrapper": true, 
       "active": this.state.active,
     }
     if (this.state.ready) {
         cartItemCount = this.state.cartItems.length;
         if (cartItemCount > 0) {
+          
+          // list of cart items
           innerContent = <ListOfCartItems cartItems={this.state.cartItems} />
+          
+          // checkout button
+          checkoutButton = <button onClick={this.checkout} className={cx("checkout-button")}>Checkout</button>
+          
+          subtotal = <div className={cx("subtotal")}><strong>Subtotal:</strong> ${cart.cart.subtotal}</div>;
         }
         else {
           innerContent = <p className={cx("muted")}>Your cart is empty</p>;
@@ -146,31 +184,44 @@ export class ShoppingCart extends React.Component {
     }
     
     return (
-      <div className={cx("shopping-cart-wrapper")}>
-        <div className={cx("shopping-cart-icon")}>
-          <i className="material-icons" onClick={this.toggle}>shopping_cart</i>
-        </div>
-        <div className={cx("shopping-cart-item-count")}>
-          items: {cartItemCount}
-        </div>
-        <div className={cx(cartItemClasses)}>
+      <div className={cx(cartWrapperClasses)}>
+        <button className={cx("shopping-cart-icon")} onClick={this.toggle}>
+          <span>Cart</span>
+          <span>{cartItemCount}</span>
+          <i className="material-icons">shopping_cart</i>
+        </button>
+        <div className={cx("cart-items-wrapper")}>
           <h3>Your Cart </h3>
           {innerContent}
           {checkoutButton}
+          {subtotal}
         </div>
       </div>
     )
   }
 }
 
+
+// 
+// 
 export const ListOfCartItems = (props) => {
   
   return (
     <table className={cx("cart-items")}>
+      <thead>
+        <tr>
+          <td>&mdash;</td>
+          <td>Item</td>
+          <td>PID</td>
+          <td>Quantity</td>
+          <td>Price</td>
+        </tr>
+      </thead>
       <tbody>
         {props.cartItems.map((lineItem, i) => {
+        console.log("lineItem:", lineItem);
           return (
-            <CartItem key={i} {...lineItem} index={i} />
+            <CartItem key={i} {...lineItem} lineId={lineItem.id} index={i} />
           )
         })}
       </tbody>
@@ -185,12 +236,20 @@ export class CartItem extends React.Component {
   constructor(){
     super();
     this.changeQuantity = this.changeQuantity.bind(this);
+    this.removeItem = this.removeItem.bind(this);
     
+  }
+  
+  removeItem() {
+    let lineId = this.props.lineId;
+    cart.removeItem(lineId);
   }
   
   changeQuantity(e) {
     let val = e.target.value;
+    let lineId = this.props.lineId;
     
+    cart.updateQuantity(lineId, val);
   }
   
   render() {
@@ -203,16 +262,16 @@ export class CartItem extends React.Component {
         </td>
         <td className={cx("cart-item-name")}> {this.props.attrs.title} </td>
         <td className={cx("cart-item-id")}>
-          pid: {this.props.attrs.product_id}
+          {this.props.attrs.product_id}
         </td>
         <td className={cx("cart-item-quantity")}>
           <input type="number"
           value={this.props.attrs.quantity}
           onChange={this.changeQuantity} />
         </td>
+        <td className={cx("cart-item-price")}>${this.props.attrs.price}</td>
         <td className={cx("cart-item-remove")}>
-          <span className="hidden">&times;</span>
-          <span className="visually-hidden">Remove</span>
+          <button onClick={this.removeItem}>Remove</button>
         </td>
       </tr>
     )
