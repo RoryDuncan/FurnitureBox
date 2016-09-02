@@ -7,7 +7,7 @@ This project uses the following:
   - React
   - JSX
   - React-Static
-  - Firebase
+  - Shopify
   - CSS Modules
   - Stylus
   - Google Material Icons
