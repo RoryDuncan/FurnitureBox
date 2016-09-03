@@ -132,7 +132,6 @@ export class ShoppingCart extends React.Component {
   }
   
   componentDidMount() {
-    let that = this;
     cart.events.on("ready", this.onCartReady)
     cart.events.on("change", this.update);
   }

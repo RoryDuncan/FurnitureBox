@@ -31,13 +31,12 @@ export const CollectionTitleLink = (props) => {
 // Collection's props are expected to be a collection from collections.json
 export const Collection = (props) => {
   
-  console.log("collection this.props.disableCartButtons:", props.disableCartButtons);
-  
+  let noCommerce = props.noCommerce;
   return (
     <div className={cx("collection")}>
       {props.products.map((product, i) =>{
-        let props = product;
-        return <ProductItem key={i} {...props} listed />
+
+        return <ProductItem key={i} {...product} noCommerce listed />
       })}
     </div>
   )

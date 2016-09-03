@@ -104,7 +104,7 @@ data.keys.map((name, i) => {
         </div>
         <CollectionDescription name={props.attrs.title} noTitle {...props} />
         <h2>Items in Collection:</h2>
-        <Collection name={props.attrs.title} disableCartButtons products={props.products} />
+        <Collection name={props.attrs.title} noCommerce products={props.products} />
       </div>
     )
   }
