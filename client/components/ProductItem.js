@@ -43,6 +43,8 @@ export class ProductItem extends React.Component {
       "collection-item": this.props.listed
     })
     
+    console.log(this.props.disableCartButtons);
+    
     let description = {__html: this.props.attrs.body_html};
     return (
       <div className={productClasses}>
@@ -54,7 +56,7 @@ export class ProductItem extends React.Component {
           <div className={cx("collection")}>{this.props.collection}</div>
           <div className={cx("description")} dangerouslySetInnerHTML={description} />
           <div className={cx("price")}>{this.props.attrs.variants[0].price}</div>
-          <AddToCartButton {...this.props} />
+          {this.props.disableCartButtons === undefined ? <AddToCartButton {...this.props} /> : false }
         </div>
       </div>
     )

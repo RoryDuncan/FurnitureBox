@@ -43,7 +43,6 @@ export class AddToCartButton extends React.Component {
   }
   
   update() {
-    console.log("AddToCartButton::update");
     if (this.state.inCart) {
 
       let product_id = this.props.attrs.product_id;
@@ -68,7 +67,6 @@ export class AddToCartButton extends React.Component {
     cart.addItem(product_id).then(() => {
       
       let lineId = cart.getCartItems().filter((el, i) => {
-        console.log(el.attrs.product_id);
         if (el.attrs.product_id === product_id) return true;
       })
       
@@ -154,6 +152,7 @@ export class ShoppingCart extends React.Component {
   
   checkout() {
     console.log("Time to Checkout!")
+    let checkoutWindow = window.open(cart.getCheckoutUrl());
   }
   
   render() {
@@ -219,7 +218,6 @@ export const ListOfCartItems = (props) => {
       </thead>
       <tbody>
         {props.cartItems.map((lineItem, i) => {
-        console.log("lineItem:", lineItem);
           return (
             <CartItem key={i} {...lineItem} lineId={lineItem.id} index={i} />
           )
@@ -253,7 +251,6 @@ export class CartItem extends React.Component {
   }
   
   render() {
-    console.log(this.props)
     let src =  this.props.attrs.image.src ? this.props.attrs.image.src : client.NO_IMAGE_URI;
     return (
       <tr className={cx("cart-item")}>

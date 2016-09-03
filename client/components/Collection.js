@@ -31,6 +31,8 @@ export const CollectionTitleLink = (props) => {
 // Collection's props are expected to be a collection from collections.json
 export const Collection = (props) => {
   
+  console.log("collection this.props.disableCartButtons:", props.disableCartButtons);
+  
   return (
     <div className={cx("collection")}>
       {props.products.map((product, i) =>{
@@ -81,7 +83,7 @@ export const CollectionDescription = (props) => {
       <img className={cx("collection-image")} src={src} />
       <div className={cx("description")} dangerouslySetInnerHTML={props.description} />
       {props.linked === true ? 
-        <Link to={`/collections/${props.name}`} >Shop the {props.name} collection</Link> 
+        <Link to={`/collections/${props.attrs.title.toLowerCase()}`} >View the {props.attrs.title} Collection</Link> 
         : false
       }
     </div>

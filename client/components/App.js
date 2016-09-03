@@ -103,8 +103,8 @@ data.keys.map((name, i) => {
           <h1>The {props.attrs.title} Collection</h1>
         </div>
         <CollectionDescription name={props.attrs.title} noTitle {...props} />
-        <h2>In this collection:</h2>
-        <Collection name={props.attrs.title} products={props.products} />
+        <h2>Items in Collection:</h2>
+        <Collection name={props.attrs.title} disableCartButtons products={props.products} />
       </div>
     )
   }

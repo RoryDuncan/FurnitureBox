@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import data from './collections.json';
-const collections = data.collections;
 
 import { 
   App,
@@ -19,7 +18,7 @@ const title = (page) => `${site} - ${page}`
 
 const collectionRoutes = data.keys.map((name, i) =>{
   return <Route 
-    path="/collections/:name" 
+    path={`/collections/${name}`}
     title={title(`${name} Collection`)}
     component={collectionPages[name]}
     key = {i} />
