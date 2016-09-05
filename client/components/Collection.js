@@ -28,29 +28,32 @@ export const CollectionTitleLink = (props) => {
 
 
 //
+// A collection is a list of products
 // Collection's props are expected to be a collection from collections.json
 export const Collection = (props) => {
   
-  let noCommerce = props.noCommerce;
+  let noCommerce = props.noCommerce || null;
+  let listed = props.listed || null;
+  console.log(noCommerce);
   return (
     <div className={cx("collection")}>
       {props.products.map((product, i) =>{
 
-        return <ProductItem key={i} {...product} noCommerce listed />
+        return <ProductItem key={i} {...product} noCommerce={noCommerce} listed={listed} />
       })}
     </div>
   )
 }
 
 //
-// The collections shown on /catalog
+// The collections shown on /shop
 export const CatalogCollection = (props) => {
 
   return (
     <div className={cx("collection-wrapper")}>
       
       <CollectionTitleLink name={props.name} />
-      <Collection name={props.name} products={props.products}/>
+      <Collection name={props.name} products={props.products} />
 
     </div>
   )
@@ -68,7 +71,7 @@ export const CollectionList = () => {
 
 
 //
-//
+// The name, image, and description of a collection. Does not include items
 export const CollectionDescription = (props) => {
 
   let src = "//placehold.it/1040x420";
@@ -100,9 +103,9 @@ export const CollectionDescription = (props) => {
 // 
 export const RenderedCatalog = data.keys.map((name, i) => {
   let collection = collections[name];
-  
+  let noCommerce = false;
   return (
-    <CatalogCollection key={i} name={collection.attrs.title} products={collection.products} />
+    <CatalogCollection key={i} name={collection.attrs.title} products={collection.products} noCommerce />
   )
 });
 

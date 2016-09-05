@@ -31,16 +31,15 @@ export const ProductImage = (props) => {
 
 export class ProductItem extends React.Component {
   
-  constructor() {
+  constructor(props) {
     super();
   }
   
   render() {
-  
-  
+    
     let price = <div className={cx("price")}>{this.props.attrs.variants[0].price}</div>;
     let addToCart = <AddToCartButton {...this.props} />;
-    if (!this.props.noCommerce) {
+    if (this.props.noCommerce) {
       price = addToCart = null;
     }
     
@@ -65,4 +64,9 @@ export class ProductItem extends React.Component {
     )
   }
   
+}
+
+ProductItem.defaultProps = {
+  noCommerce: false,
+  listed: false
 }

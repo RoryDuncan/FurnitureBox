@@ -34,6 +34,45 @@ export class HomePage extends React.Component {
       <div className={cx('page')}>
         <div className={cx('siteTitle')}>
           <h1>Value Link</h1>
+          <p>This is the homepage of Value Link</p>
+          <h2>Roadmap</h2>
+          <p>The features and bugs that need apprehending</p>
+          <ul>
+            <li>
+              Internationalization
+              <ul>
+                <li>Entire site</li>
+                <li>Shopify Items</li>
+              </ul>
+            </li>
+            <li>
+              Cart persistance through Local Storage
+            </li>
+            <li>"Shop this Collection" button in &lt;CollectionDetails /&gt; Component</li>
+            <li>Pages to add:
+              <ul>
+                <li>
+                  <details>
+                    <summary>How it Works page</summary>
+                    <p>A page explaining how our processes work</p>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                      <summary>Transparency page</summary>
+                      <p>A page discussing the transparency of our product.</p>
+                  </details>
+                </li>
+                <li>
+                  <details>
+                    <summary>Administration Pages</summary>
+                    <p>Page for controlling aspects of the rest of the site.</p>
+                  </details>
+                </li>
+              </ul>
+            </li>
+            <li></li>
+          </ul>
         </div>
       </div>
     );
