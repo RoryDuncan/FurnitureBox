@@ -42,7 +42,9 @@ export class HomePage extends React.Component {
               Internationalization
               <ul>
                 <li>Entire site</li>
-                <li>Shopify Items</li>
+                <li>Shopify Items: 
+                  <a href="https://rory-value-link.myshopify.com/admin/themes/123704833/language" target="_blank">Shopify Language options here</a>
+                </li>
               </ul>
             </li>
             <li>
