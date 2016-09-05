@@ -136,7 +136,7 @@ export class ShoppingCart extends React.Component {
     cart.events.on("change", this.update);
   }
   
-  componentWillUnMount() {
+  componentWillUnmount() {
     cart.events.removeListener("change", this.update);
     cart.events.removeListener("ready", this.onCartReady);
   }

@@ -34,7 +34,6 @@ export const Collection = (props) => {
   
   let noCommerce = props.noCommerce || null;
   let listed = props.listed || null;
-  console.log(noCommerce);
   return (
     <div className={cx("collection")}>
       {props.products.map((product, i) =>{
@@ -52,7 +51,10 @@ export const CatalogCollection = (props) => {
   return (
     <div className={cx("collection-wrapper")}>
       
-      <CollectionTitleLink name={props.name} />
+      <h3>{props.name}</h3>
+      <p>
+        <Link to={`/collections/${props.name}`}>Learn about the {props.name} Collection</Link>
+      </p>
       <Collection name={props.name} products={props.products} />
 
     </div>
@@ -83,11 +85,17 @@ export const CollectionDescription = (props) => {
     <div className={cx("collection")}>
       {props.noTitle === true ? false : <h3 className={cx("collection-title")}>{props.attrs.title}</h3> }
       <img className={cx("collection-image")} src={src} />
+      <div className={cx("shop-collection")}>
+        <Link to={`/shop#${props.attrs.title.toLowerCase()}`}>
+          <button>Shop this Collection</button>
+        </Link>
+      </div>
       <div className={cx("description")} dangerouslySetInnerHTML={props.description} />
       {props.linked === true ? 
         <Link to={`/collections/${props.attrs.title.toLowerCase()}`} >View the {props.attrs.title} Collection</Link> 
         : false
       }
+
     </div>
   )
 };
