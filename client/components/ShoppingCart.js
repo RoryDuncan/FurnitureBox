@@ -22,6 +22,7 @@ export class AddToCartButton extends React.Component {
     this.addToCart = this.addToCart.bind(this);
     this.removeFromCart = this.removeFromCart.bind(this);
     this.update = this.update.bind(this);
+    this.checkout = this.checkout.bind(this);
     
     this.state = {
       cartReady: cart.ready,
@@ -40,6 +41,10 @@ export class AddToCartButton extends React.Component {
         that.setState({cartReady: true})
       })
     }
+  }
+  
+  checkout() {
+    window.open(cart.getCheckoutUrl())
   }
   
   update() {
@@ -89,16 +94,24 @@ export class AddToCartButton extends React.Component {
     
     let text = "Add to Cart";
     let action = this.addToCart;
-    if (this.state.inCart) {
-      text = "Remove from Cart";
-      action = this.removeFromCart;
-    }
-    
     let addToCartButtonClasses = cx({
       "add-to-cart": true,
       "in-cart": this.state.inCart,
       "visually-hidden": !this.state.cartReady
     });
+    
+    if (this.state.inCart) {
+      text = "Remove from Cart";
+      action = this.removeFromCart;
+      
+      return (
+        <div>
+          <button className={addToCartButtonClasses} onClick={action}>{text}</button>
+          <em className={cx("in-between-button")}>&ndash; or &ndash;</em>
+          <button className={cx("checkout")} onClick={this.checkout}>Checkout</button>
+        </div>
+      )
+    }
     
     return (
       <button className={addToCartButtonClasses} onClick={action}>{text}</button>
@@ -150,8 +163,7 @@ export class ShoppingCart extends React.Component {
   }
   
   checkout() {
-    console.log("Time to Checkout!")
-    let checkoutWindow = window.open(cart.getCheckoutUrl());
+    window.open(cart.getCheckoutUrl());
   }
   
   render() {
@@ -189,7 +201,7 @@ export class ShoppingCart extends React.Component {
           <i className="material-icons">shopping_cart</i>
         </button>
         <div className={cx("cart-items-wrapper")}>
-          <h3>Your Cart </h3>
+          <h3><i className="material-icons">shopping_cart</i> Your Cart </h3>
           {innerContent}
           {checkoutButton}
           {subtotal}

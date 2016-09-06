@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import classnames from 'classnames/bind';
 import s from '../components/styles/App.styl';
 import Page from '../components/Page';
@@ -23,14 +23,14 @@ data.keys.map((name, i) => {
   
   collectionPages[name] = (parameterProps) => {
     return (
-      <Page>
+      <div>
         <div className={cx('site-title')}>
           <h1>The {props.attrs.title} Collection</h1>
         </div>
         <CollectionDescription name={props.attrs.title} noTitle {...props} />
         <h2>Items in Collection:</h2>
         <Collection name={props.attrs.title} noCommerce products={props.products} />
-      </Page>
+      </div>
     )
   }
   

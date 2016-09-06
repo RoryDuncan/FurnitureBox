@@ -26,7 +26,6 @@ export class Home extends React.Component {
             <li>
               Cart persistance through Local Storage
             </li>
-            <li>"Shop this Collection" button in &lt;CollectionDetails /&gt; Component</li>
             <li>Pages to add:
               <ul>
                 <li>
@@ -49,7 +48,7 @@ export class Home extends React.Component {
                 </li>
               </ul>
             </li>
-            <li></li>
+            <li>Stylize Site</li>
           </ul>
         </div>
       </Page>

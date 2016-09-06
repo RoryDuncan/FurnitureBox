@@ -6,7 +6,7 @@ import {RenderedCollectionDetails} from '../components/Collection.js';
 
 const cx = classnames.bind(s);
 
-export class CollectionsPage extends React.Component {
+export class Collections extends React.Component {
   render() {
 
     if (!!this.props.children) {
@@ -20,7 +20,7 @@ export class CollectionsPage extends React.Component {
     else {
       return (
         <Page>
-          <div className={cx('siteTitle')}>
+          <div className={cx('site-title')}>
             <h1>Collections</h1>
           </div>
           {RenderedCollectionDetails}

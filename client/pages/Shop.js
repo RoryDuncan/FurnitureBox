@@ -6,11 +6,11 @@ const cx = classnames.bind(s);
 import {Catalog} from '../components/Shop.js';
 
 
-export class ShopPage extends React.Component {
+export class Shop extends React.Component {
   render() {
     return (
       <Page>
-        <div className={cx('siteTitle')}>
+        <div className={cx('site-title')}>
           <h1>Shop</h1>
         </div>
         <Catalog />

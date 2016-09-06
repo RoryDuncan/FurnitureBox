@@ -25,10 +25,8 @@ const collectionRoutes = data.keys.map((name, i) =>{
 export const routes = (
   <Route path='/' component={App}>
     <IndexRoute title='ValueLink' component={Home} />
-    
     <Route path='about' title={title("About")} component={About} />
     <Route path='Shop' title={title("Shop")} component={Shop} />
-    
     <Route path='faq'   title={title("FAQ")} component={NotFound} />
     <Route path='contact' title={title("Contact")} component={NotFound} />
     <Route path='account' title={title("Account")} component={NotFound} />
