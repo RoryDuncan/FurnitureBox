@@ -1,18 +1,15 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
+import {App} from './components/App.js';
+// Pages
+import {Home} from './pages/Home';
+import {About} from './pages/About';
+import {Shop} from './pages/Shop';
+import {NotFound} from './pages/NotFound';
+import {Collections} from './pages/Collections';
+import {collectionPages} from './pages/Collections__rendered';
 
 import data from './collections.json';
-
-import { 
-  App,
-  AboutPage,
-  HomePage,
-  NotFoundPage,
-  ShopPage,
-  CollectionsPage,
-  collectionPages
-} from './components/App.js';
-
 const site = "ValueLink"
 const title = (page) => `${site} - ${page}`
 
@@ -27,21 +24,21 @@ const collectionRoutes = data.keys.map((name, i) =>{
 
 export const routes = (
   <Route path='/' component={App}>
-    <IndexRoute title='ValueLink' component={HomePage} />
+    <IndexRoute title='ValueLink' component={Home} />
     
-    <Route path='about' title={title("About")} component={AboutPage} />
-    <Route path='Shop' title={title("Shop")} component={ShopPage} />
+    <Route path='about' title={title("About")} component={About} />
+    <Route path='Shop' title={title("Shop")} component={Shop} />
     
-    <Route path='faq'   title={title("FAQ")} component={NotFoundPage} />
-    <Route path='contact' title={title("Contact")} component={NotFoundPage} />
-    <Route path='account' title={title("Account")} component={NotFoundPage} />
-    <Route path='admin' title={title("Admin")} component={NotFoundPage} />
-    <Route path='collections' title={title("Collections")} component={CollectionsPage}>
+    <Route path='faq'   title={title("FAQ")} component={NotFound} />
+    <Route path='contact' title={title("Contact")} component={NotFound} />
+    <Route path='account' title={title("Account")} component={NotFound} />
+    <Route path='admin' title={title("Admin")} component={NotFound} />
+    <Route path='collections' title={title("Collections")} component={Collections}>
       {collectionRoutes}
     </Route>
     
     {/* fall through*/}
-    <Route path='*' title={title("404: Not Found")} component={NotFoundPage} />
+    <Route path='*' title={title("404: Not Found")} component={NotFound} />
   </Route>
 );
 
