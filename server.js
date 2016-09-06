@@ -13,7 +13,7 @@ import webpack from 'webpack';
 import config from './webpack.config.dev.js';
 
 const Html = ({
-  title = 'Value-Link Dev',
+  title = '≡ Dev',
   bundle = '/app.js',
   body = '',
   favicon = '',
