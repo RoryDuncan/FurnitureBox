@@ -49,6 +49,7 @@ export class Home extends React.Component {
               </ul>
             </li>
             <li>Stylize Site</li>
+            <li>Build Functional Contact Page with StamPlay</li>
           </ul>
         </div>
       </Page>
