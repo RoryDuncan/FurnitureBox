@@ -16,6 +16,7 @@ import './favicon.ico';
 // Sub Components
 import {AuthRegion} from './Auth.js';
 import {SiteHeader} from './Header.js';
+import {SiteFooter} from './Footer.js';
 import {Catalog} from './Shop.js';
 import {
   RenderedCollectionDetails,
@@ -27,11 +28,28 @@ import {
 import data from '../collections.json';
 const collections = data.collections;
 
+
+export const Page = (props) => {
+  
+  let header = !props.hasHeader ? <SiteHeader /> : false;
+  let footer = !props.hasFooter ? <SiteFooter /> : false;
+  
+  return (
+    <main className={cx("page")}>
+      {header}
+      {props.children}
+      {footer}
+    </main>
+  )
+}
+
+
+
 // Pages as Classes
 export class HomePage extends React.Component {
   render() {
     return (
-      <div className={cx('page')}>
+      <Page>
         <div className={cx('siteTitle')}>
           <h1>Value Link</h1>
           <p>This is the homepage of Value Link</p>
@@ -76,7 +94,7 @@ export class HomePage extends React.Component {
             <li></li>
           </ul>
         </div>
-      </div>
+      </Page>
     );
   }
 }
@@ -84,12 +102,12 @@ export class HomePage extends React.Component {
 export class AboutPage extends React.Component {
   render() {
     return (
-      <div className={cx('page')}>
+      <Page>
         <div className={cx('siteTitle')}>
           <h1>About Page</h1>
         </div>
         <p>Welcome to the about page...</p>
-      </div>
+      </Page>
     );
   }
 }
@@ -97,12 +115,12 @@ export class AboutPage extends React.Component {
 export class ShopPage extends React.Component {
   render() {
     return (
-      <div className={cx('page')}>
+      <Page>
         <div className={cx('siteTitle')}>
           <h1>Shop</h1>
         </div>
         <Catalog />
-      </div>
+      </Page>
     );
   }
 }
@@ -113,19 +131,19 @@ export class CollectionsPage extends React.Component {
     if (!!this.props.children) {
 
     return (
-      <div className={cx('page')}>
+      <Page>
         {this.props.children}
-      </div>
+      </Page>
     );
     }
     else {
       return (
-        <div className={cx('page')}>
+        <Page>
           <div className={cx('siteTitle')}>
             <h1>Collections</h1>
           </div>
           {RenderedCollectionDetails}
-        </div>
+        </Page>
       );
     }
   }
@@ -139,14 +157,14 @@ data.keys.map((name, i) => {
   
   collectionPages[name] = (parameterProps) => {
     return (
-      <div className={cx('page')}>
+      <Page>
         <div className={cx('siteTitle')}>
           <h1>The {props.attrs.title} Collection</h1>
         </div>
         <CollectionDescription name={props.attrs.title} noTitle {...props} />
         <h2>Items in Collection:</h2>
         <Collection name={props.attrs.title} noCommerce products={props.products} />
-      </div>
+      </Page>
     )
   }
   
@@ -156,9 +174,9 @@ data.keys.map((name, i) => {
 export class NotFoundPage extends React.Component {
   render() {
     return (
-      <div className={cx('page')}>
+      <Page>
         <h4>Not found</h4>
-      </div>
+      </Page>
     );
   }
 }
@@ -175,7 +193,6 @@ export class App extends React.Component {
   render() {
     return (
       <div className={cx('App')}>
-        <SiteHeader />
         {this.props.children}
       </div>
     );
