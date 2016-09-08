@@ -4,6 +4,8 @@ import s from '../components/styles/App.styl';
 import Page from '../components/Page';
 const cx = classnames.bind(s);
 
+import {ContactForm} from '../components/ContactForm';
+
 
 export class Contact extends React.Component {
   render() {
@@ -13,40 +15,8 @@ export class Contact extends React.Component {
           <h1>Contact</h1>
         </div>
         <p>Feedback / Problem with order / Want to chat / Any question, ever</p>
-        
+        <ContactForm action="https://value-link.stamplayapp.com/api/webhook/v1/contact/catch" method="POST" />
       </Page>
     );
   }
-}
-
-
-export const LabelAndInput = (props) => {
-  
-  return (
-    <div className="input-container">
-    <label>
-      
-    </label>
-    <input>
-      
-    </input>
-    </div>
-  )
-}
-
-export class ContactForm extends React.Component {
-  
-  constructor(){
-    super();
-  }
-  
-  render() {
-    
-    return (
-      <div className={cx("contact-form")}>
-        <h3>Contact</h3>
-      </div>
-    )
-  }
-  
 }

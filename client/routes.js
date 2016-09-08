@@ -6,6 +6,7 @@ import {Home} from './pages/Home';
 import {About} from './pages/About';
 import {FAQ} from './pages/FAQ';
 import {Shop} from './pages/Shop';
+import {Contact} from './pages/Contact';
 import {NotFound} from './pages/NotFound';
 import {Collections} from './pages/Collections';
 import {collectionPages} from './pages/Collections__rendered';
@@ -30,7 +31,7 @@ export const routes = (
     <Route path='Shop' title={title("Shop")} component={Shop} />
     <Route path='faq'   title={title("FAQ")} component={FAQ} />
     <Route path='how-it-works'   title={title("FAQ")} component={NotFound} />
-    <Route path='contact' title={title("Contact")} component={NotFound} />
+    <Route path='contact' title={title("Contact")} component={Contact} />
     <Route path='account' title={title("Account")} component={NotFound} />
     <Route path='admin' title={title("Admin")} component={NotFound} />
     <Route path='collections' title={title("Collections")} component={Collections}>
