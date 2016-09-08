@@ -10,7 +10,7 @@ module.exports = {
   devtool: 'source-map',
 
   entry: {
-    app: ['./client/index.js'],
+    app: ['whatwg-fetch', './client/index.js'],
   },
 
   output: {

@@ -29,7 +29,7 @@ module.exports = {
   devtool: 'inline-source-map',
 
   entry: {
-    app: [
+    app: ['whatwg-fetch',
       'webpack-hot-middleware/client?path=' + HMR_HOST,
       './client/index.js',
     ],
