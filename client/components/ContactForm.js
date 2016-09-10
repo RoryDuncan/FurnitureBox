@@ -2,6 +2,27 @@ import React from 'react';
 import classnames from 'classnames/bind';
 import s from './styles/Forms.styl';
 const cx = classnames.bind(s);
+/* global fetch */
+import 'whatwg-fetch';
+
+/* fetch / ajax helpers */
+const checkStatus = (response) => {
+  if (response.status >= 200 && response.status < 300) {
+    return response
+  } else {
+    var error = new Error(response.statusText)
+    error.response = response
+    throw error
+  }
+}
+
+const parseJSON = (response) => {
+  return response.json()
+}
+
+
+
+/* components */
 
 export class LabelAndInput extends React.Component {
   
@@ -9,15 +30,19 @@ export class LabelAndInput extends React.Component {
     super();
     this.onChange = this.onChange.bind(this);
     this.isValid = this.isValid.bind(this);
+    this.state = {
+      isEmpty: false,
+      isInvalid: false
+    }
   }
   
   onChange(e) {
-    console.log(e.target.value);
     e.target.checkValidity();
-    if (e.target.reportValidity) e.target.reportValidity();
-    if (this.props.onChange) {
-      this.props.onChange(e)
-    }
+    if (this.state.isInvalid) { this.setState({isInvalid: false}); }
+    if (this.state.isEmpty) { this.setState({isEmpty: false}); }
+    // if (e.target.reportValidity) e.target.reportValidity();
+    if (this.props.onChange) this.props.onChange(e);
+    
   }
   
   isValid() {
@@ -26,8 +51,22 @@ export class LabelAndInput extends React.Component {
   
   render() {
     
-    let required = this.props.required || null;
     
+    let error = null;
+    if (this.state.isInvalid) {
+      error = (
+        <p>The email you entered is invalid.</p>
+      )
+    }
+    
+    if (this.state.isEmpty) {
+      error = (
+        <p>Your name can not be empty.</p>
+      )
+    }
+    
+    let required = this.props.required || null;
+    let defaultValue = this.props.value || null;
     return (
       <div className={cx("input-container")}>
         <label ref="label">
@@ -37,8 +76,10 @@ export class LabelAndInput extends React.Component {
           type={this.props.type} 
           onChange={this.onChange}
           required={required}
+          defaultValue={defaultValue}
           ref="input"
         />
+        {error}
       </div>
     )
     
@@ -49,18 +90,37 @@ export class TextArea extends LabelAndInput {
   
   constructor() {
     super();
+    this.state = {
+      isEmpty: false
+    }
   }
   
   onChange() {
-  
+    // reset validation state
+    if (this.state.isEmpty) { this.setState({isEmpty: false});}
   }
   
   render() {
+    
+    let error = null;
+    
+    if (this.state.isEmpty) {
+      error = (
+        <p>Your message is empty.</p>
+      )
+    }
+    
     let required = this.props.required || null;
+    let defaultValue = this.props.value || null;
     return (
       <div>
         <label>{this.props.label}</label>
-        <textarea onChange={this.onChange} required={required}>{this.props.defaultValue}</textarea>
+        <textarea 
+          ref="textarea" 
+          onChange={this.onChange} 
+          defaultValue={defaultValue} 
+          required={required}></textarea>
+        {error}
       </div>
     )
   }
@@ -71,20 +131,30 @@ export class DropdownMenu extends LabelAndInput {
   
   constructor() {
     super();
-
+    this.state = {
+      isInvalid: false
+    }
   }
   
   onChange(e) {
-    console.log("dropdown changed to", e.target.value)
-  }
-  
-  isValid() {
     
+    // reset validity states
+    if (this.state.isInvalid) { this.setState({isInvalid: false}); }
+    if (this.props.onChange) this.props.onChange(e);
   }
   
   render() {
     
     let options = this.props.children;
+    let defaultValue = this.props.value || null;
+    
+    let error = null;
+    
+    if (this.state.isInvalid) {
+      error = (
+        <p>The reason you provided is invalid. Use the dropdown menu to select a reason.</p>
+      )
+    }
     
     // if the options property is passed, use it, otherwise default to 
     // this.props.children
@@ -100,9 +170,12 @@ export class DropdownMenu extends LabelAndInput {
     return (
       <div className={cx("input-container")}>
         <label ref="label">{this.props.label}</label>
-        <select ref="select" onChange={this.onChange}>
+        <select ref="select" 
+          onChange={this.onChange} 
+          defaultValue={defaultValue}>
           {options}
-        </select> 
+        </select>
+        {error}
       </div>
     )
   }
@@ -115,17 +188,39 @@ export class ContactForm extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
     this.checkValidity = this.checkValidity.bind(this);
+    this.getFormData = this.getFormData.bind(this);
+    this.postSubmitDetermineState = this.postSubmitDetermineState.bind(this);
+    this.updateFormComponentsWithErrors = this.updateFormComponentsWithErrors.bind(this);
     
     this.state = {
-      submitted: false
-    }
+      loading: false,
+      submitted: false,
+      hasErrors: false,
+      errorDetails: null
+    };
   }
   
   checkValidity() {
-    return this.refs.form.checkValidity()
+    let result = this.refs.form.checkValidity()
+    if (this.refs.form.reportValidity) { 
+      this.refs.form.reportValidity()
+    }
+    
+    return result;
   }
   
-  isValid() {
+  getFormData() {
+    
+    let that = this;
+    
+    let data = {
+      'name': that.refs.name.refs.input.value,
+      'email': that.refs.email.refs.input.value,
+      'message': that.refs.message.refs.textarea.value,
+      'reason': that.refs.reason.refs.select.value
+    };
+    
+    return data;
     
   }
   
@@ -133,30 +228,94 @@ export class ContactForm extends React.Component {
     this.checkValidity();
   }
   
-  onSubmit(e) {
-    console.log(this);
-    console.log("Form valid:", this.refs.form.checkValidity())
+  postSubmitDetermineState(response) {
+    let nextState = {
+      loading: false
+    }
     
-    return this.refs.form.checkValidity()
+    if (response.ok) {
+      nextState.submitted = true;
+      nextState.hasErrors = false;
+    } else {
+      nextState.hasErrors = true;
+      this.updateFormComponentsWithErrors(response.errorDetails);
+    }
+    this.setState(nextState);
+  }
+  
+  updateFormComponentsWithErrors(errorDetails) {
+    
+    // trickle our errors down via refs
+    this.refs.name.setState({isEmpty: errorDetails.name.isEmpty});
+    this.refs.message.setState({isEmpty: errorDetails.message.isEmpty});
+    this.refs.email.setState({isInvalid: errorDetails.email.isInvalid});
+    this.refs.reason.setState({isInvalid: errorDetails.reason.isInvalid});
+
+  }
+  
+  onSubmit(e) {
+    let that = this;
+    
+    this.setState({loading: true});
+    this.checkValidity();
+    let data = this.getFormData();
+    let action = this.refs.form.action;
+    let method = this.refs.form.method.toUpperCase();
+    let options = {
+      'method': method,
+      'headers': {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      'body': JSON.stringify(data)
+    };
+    
+    fetch(action, options)
+      .then(checkStatus)
+      .then(parseJSON)
+      .then(this.postSubmitDetermineState)
+      .catch((err) => {
+        console.error(err, err.message);
+      });
+    
+    
+    e.preventDefault();
+    return data
   }
   
   render() {
+    
+    let errors = null;
+    
+    if (this.state.hasErrors) {
+      errors = <p>The information you submitted has errors. Please fix them, and then resubmit the form.</p>
+    } else if (this.state.submitted) {
+      return (
+        <div>
+          <h3>Your message was successfully sent!</h3>
+          <p>Thanks for reaching out, we will get back to you as fast as we can!</p>
+        </div>
+      );
+    }
     
     return (
       <form onSubmit={this.onSubmit}  ref="form" action={this.props.action} method={this.props.method} className={cx("contact-form")}>
         <h3>Send A Message</h3>
         <h5>Your Information</h5>
-        <p>Filling out the 'Reason for Contact' below will help us filter your message to the correct channel, so you can be helped accordingly</p>
-        <DropdownMenu label="Reason for Contact">
-          <option value="saying-hello">Saying Hello</option>
-          <option value="problem">Problem with Order</option>
-          <option value="question">I Have a Question</option>
-          <option value="feedback">Feedback</option>
+        {errors}
+        <DropdownMenu 
+          ref="reason" 
+          label="Reason for Contact" 
+          value="saying-hello">
+            <option value="saying-hello">Saying Hello</option>
+            <option value="problem">Problem with Order</option>
+            <option value="question">I Have a Question</option>
+            <option value="feedback">Feedback</option>
         </DropdownMenu>
       
-        <LabelAndInput onChange={this.onChange} label="Name" type="text" value="" required />
-        <LabelAndInput onChange={this.onChange} label="Email" type="email" value="" required />
-        <TextArea label="Message" required />
+        <LabelAndInput ref="name" label="Name" type="text" value="test"  />
+        <LabelAndInput ref="email" label="Email" type="email" value="robust.rory@gmail.com"  />
+        <TextArea label="Message" ref="message"  value="test" />
         
         <input type="submit" value="Send" />
       </form>
