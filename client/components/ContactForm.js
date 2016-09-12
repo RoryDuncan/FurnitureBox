@@ -22,8 +22,28 @@ const parseJSON = (response) => {
 }
 
 
+/* Stateless components*/
+
 const LoadingSpinner = () => {
   return <img className={cx("loading-spinner")} src="ring-alt.gif" alt="Sending your message" />
+}
+
+const ErrorField = (props) => {
+  return (
+    <div className={cx("validation-error")}>
+      <i className="material-icons">&#xE001;</i>
+      {props.message}
+    </div>
+  )
+}
+
+const WarningField = (props) => {
+  return (
+    <div className={cx("validation-warning")}>
+      <i className="material-icons">&#xE88F;</i>
+      {props.message}
+    </div>
+  )
 }
 
 /* components */
@@ -59,13 +79,13 @@ export class LabelAndInput extends React.Component {
     let error = null;
     if (this.state.isInvalid) {
       error = (
-        <p>The email you entered is invalid.</p>
+        <ErrorField message="The email you entered is invalid." />
       )
     }
     
     if (this.state.isEmpty) {
       error = (
-        <p>Your name can not be empty.</p>
+        <ErrorField message="Your name can not be empty." />
       )
     }
     
@@ -109,9 +129,8 @@ export class TextArea extends LabelAndInput {
     let error = null;
     
     if (this.state.isEmpty) {
-      error = (
-        <p>Your message is empty.</p>
-      )
+      error = <ErrorField message="Your message is empty." />
+      
     }
     
     let required = this.props.required || null;
@@ -155,9 +174,7 @@ export class DropdownMenu extends LabelAndInput {
     let error = null;
     
     if (this.state.isInvalid) {
-      error = (
-        <p>The reason you provided is invalid. Use the dropdown menu to select a reason.</p>
-      )
+      error =  <ErrorField message="The reason you provided is invalid. Use the dropdown menu to select a reason." />
     }
     
     // if the options property is passed, use it, otherwise default to 
@@ -305,7 +322,7 @@ export class ContactForm extends React.Component {
     }
     
     if (this.state.hasErrors) {
-      errors = <p>The information you submitted has errors. Please fix them, and then resubmit the form.</p>
+      errors = <WarningField message="The information you submitted has errors. Please fix them, and then resubmit the form." />
     } else if (this.state.submitted) {
       return (
         <div>
