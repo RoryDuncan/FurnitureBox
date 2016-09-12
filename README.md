@@ -38,7 +38,7 @@ $ npm run start:dev
 
 ## Update Data from DB
 
-Since building ValueLink is static, dynamic routes such as collections and such need data to base themselves off of. Using the command below will update the local copy (located in `client/collections.json`):
+Since building ValueLink is static, dynamic routes such as collections pages need data to base themselves off of. Using the command below will update the local copy (located in `client/collections.json`):
 
 ```
 $ npm run update
