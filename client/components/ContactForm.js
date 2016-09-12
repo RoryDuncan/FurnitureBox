@@ -330,9 +330,9 @@ export class ContactForm extends React.Component {
             <option value="feedback">Feedback</option>
         </DropdownMenu>
       
-        <LabelAndInput ref="name" label="Name" type="text" value="test"  />
-        <LabelAndInput ref="email" label="Email" type="email" value="robust.rory@gmail.com"  />
-        <TextArea label="Message" ref="message"  value="test" />
+        <LabelAndInput ref="name" label="Name" type="text"  />
+        <LabelAndInput ref="email" label="Email" type="email"  />
+        <TextArea label="Message" ref="message" />
         
         <button type="submit">
           {submitText} {loadingImage}
