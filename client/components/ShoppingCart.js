@@ -6,7 +6,7 @@ import collections from '../collections.json'
 import classnames from 'classnames/bind';
 import s from './styles/ShoppingCart.styl';
 const cx = classnames.bind(s);
-
+import './images/ring-alt.gif';
 
 import {client, ShoppingCartModel} from '../cart.js';
 
@@ -27,7 +27,8 @@ export class AddToCartButton extends React.Component {
     this.state = {
       cartReady: cart.ready,
       inCart: false,
-      lineId: null
+      lineId: null,
+      loading: false
     }
     
     
@@ -68,7 +69,7 @@ export class AddToCartButton extends React.Component {
 
     let that = this;
     let product_id = this.props.attrs.product_id;
-    
+    this.setState({loading: true});
     cart.addItem(product_id).then(() => {
       
       let lineId = cart.getCartItems().filter((el, i) => {
@@ -80,7 +81,11 @@ export class AddToCartButton extends React.Component {
       // begin watching for changes in the cart
       cart.events.on("change", this.update)
       
-      that.setState({inCart: true, lineId});
+      that.setState({
+        inCart: true,
+        loading: false,
+        lineId
+      });
     });
   }
   
@@ -97,6 +102,7 @@ export class AddToCartButton extends React.Component {
     let addToCartButtonClasses = cx({
       "add-to-cart": true,
       "in-cart": this.state.inCart,
+      "loading": this.state.loading,
       "visually-hidden": !this.state.cartReady
     });
     
@@ -105,7 +111,7 @@ export class AddToCartButton extends React.Component {
       action = this.removeFromCart;
       
       return (
-        <div>
+        <div className={cx("add-to-cart-actions")}>
           <button className={addToCartButtonClasses} onClick={action}>{text}</button>
           <em className={cx("in-between-button")}>&ndash; or &ndash;</em>
           <button className={cx("checkout")} onClick={this.checkout}>Checkout</button>
@@ -113,8 +119,24 @@ export class AddToCartButton extends React.Component {
       )
     }
     
+    if (this.state.loading) {
+      return (
+        <div  className={cx("add-to-cart-actions")}>
+          <button 
+            className={addToCartButtonClasses}>
+            Working...
+            <img className={cx("loading-spinner")} src="ring-alt.gif" alt="loading" />
+          </button>
+        </div>
+      )  
+    }
+    
     return (
-      <button className={addToCartButtonClasses} onClick={action}>{text}</button>
+      <div>
+        <button 
+          className={addToCartButtonClasses} 
+          onClick={action}>{text}</button>
+      </div>
     )
   }
 }

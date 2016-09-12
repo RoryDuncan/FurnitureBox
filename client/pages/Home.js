@@ -49,6 +49,7 @@ export class Home extends React.Component {
               </ul>
             </li>
             <li>Stylize Site</li>
+            <li>Add loading spinner to async component actions</li>
           </ul>
         </div>
       </Page>

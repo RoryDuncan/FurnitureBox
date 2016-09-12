@@ -4,6 +4,7 @@ import s from './styles/Forms.styl';
 const cx = classnames.bind(s);
 /* global fetch */
 import 'whatwg-fetch';
+import './images/ring-alt.gif';
 
 /* fetch / ajax helpers */
 const checkStatus = (response) => {
@@ -21,6 +22,9 @@ const parseJSON = (response) => {
 }
 
 
+const LoadingSpinner = () => {
+  return <img className={cx("loading-spinner")} src="ring-alt.gif" alt="Sending your message" />
+}
 
 /* components */
 
@@ -254,7 +258,7 @@ export class ContactForm extends React.Component {
   }
   
   onSubmit(e) {
-    let that = this;
+    e.preventDefault();
     
     this.setState({loading: true});
     this.checkValidity();
@@ -279,13 +283,26 @@ export class ContactForm extends React.Component {
       });
     
     
-    e.preventDefault();
+    
     return data
   }
   
   render() {
     
     let errors = null;
+    let formClasses = {
+      "contact-form": true,
+      "loading": this.state.loading
+    }
+    
+    let submitText = "Send";
+    let loadingImage = <LoadingSpinner />;
+    
+    if (this.state.loading) {
+      submitText = "Sending...";
+    } else {
+      loadingImage = null;
+    }
     
     if (this.state.hasErrors) {
       errors = <p>The information you submitted has errors. Please fix them, and then resubmit the form.</p>
@@ -299,7 +316,7 @@ export class ContactForm extends React.Component {
     }
     
     return (
-      <form onSubmit={this.onSubmit}  ref="form" action={this.props.action} method={this.props.method} className={cx("contact-form")}>
+      <form onSubmit={this.onSubmit}  ref="form" action={this.props.action} method={this.props.method} className={cx(formClasses)}>
         <h3>Send A Message</h3>
         <h5>Your Information</h5>
         {errors}
@@ -317,7 +334,9 @@ export class ContactForm extends React.Component {
         <LabelAndInput ref="email" label="Email" type="email" value="robust.rory@gmail.com"  />
         <TextArea label="Message" ref="message"  value="test" />
         
-        <input type="submit" value="Send" />
+        <button type="submit">
+          {submitText} {loadingImage}
+        </button>
       </form>
     )
   }
