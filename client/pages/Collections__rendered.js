@@ -13,8 +13,11 @@ const collections = data.collections;
 const cx = classnames.bind(s);
 
 
-
+// export all the rendered things into this
 export const collectionPages = {};
+
+
+
 
 data.keys.map((name, i) => {
   
