@@ -26,7 +26,7 @@ const collectionRoutes = data.keys.map((name, i) =>{
     products = products.map((product, _i) => {
       let handle = product.attrs.handle;
       return <Route 
-        path={`/collections/${name}/${handle}`}
+        path={`/collections/${name}/items/${handle}`}
         component={collectionItemPages[name][handle]}
         key={_i} />
     });
