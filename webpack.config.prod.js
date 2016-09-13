@@ -45,6 +45,10 @@ module.exports = {
         exclude: path.join(__dirname, 'node_modules'),
       },
       {
+        test: /\.json$/,
+        loaders: ['json-loader']
+      },
+      {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style', 'css'),
       },
