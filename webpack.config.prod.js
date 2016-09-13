@@ -18,7 +18,11 @@ module.exports = {
     filename: '[name].js',
     publicPath: '/',
   },
-
+  
+  externals: {
+    'shopify-buy': 'ShopifyBuy'
+  },
+  
   plugins: [
     new ExtractTextPlugin('[name].css', { allChunks: true }),
     new webpack.optimize.OccurenceOrderPlugin(),

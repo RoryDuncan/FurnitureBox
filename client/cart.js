@@ -132,4 +132,8 @@ export class ShoppingCartModel {
     return this.cart.checkoutUrl;
   }
   
+  checkout() {
+    window.open(this.getCheckoutUrl())
+  }
+  
 }

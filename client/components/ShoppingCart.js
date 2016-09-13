@@ -11,7 +11,7 @@ import './images/ring-alt.gif';
 import {client, ShoppingCartModel} from '../cart.js';
 
 export let cart = new ShoppingCartModel();
-cart.init()
+cart.init();
 
 //
 //
@@ -45,7 +45,7 @@ export class AddToCartButton extends React.Component {
   }
   
   checkout() {
-    window.open(cart.getCheckoutUrl())
+    cart.checkout();
   }
   
   update() {
@@ -185,7 +185,7 @@ export class ShoppingCart extends React.Component {
   }
   
   checkout() {
-    window.open(cart.getCheckoutUrl());
+    cart.checkout();
   }
   
   render() {
