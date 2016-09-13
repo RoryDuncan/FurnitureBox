@@ -4,5 +4,11 @@
     "development": {
       "presets": ["react-hmre"]
     }
-  }
+  },
+  "plugins": [ 
+    "extract-format-message", {
+      "generateId": "underscored_crc32",
+      "outFile": "locales/en.json"
+    } 
+  ]
 }
