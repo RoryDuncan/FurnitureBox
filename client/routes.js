@@ -7,6 +7,7 @@ import {About} from './pages/About';
 import {FAQ} from './pages/FAQ';
 import {Shop} from './pages/Shop';
 import {HowWeWork} from './pages/HowWeWork';
+import {Transparency} from './pages/Transparency';
 import {Contact} from './pages/Contact';
 import {NotFound} from './pages/NotFound';
 import {Collections} from './pages/Collections';
@@ -53,7 +54,8 @@ export const routes = (
     <Route path='about' title={title("About")} component={About} />
     <Route path='Shop' title={title("Shop")} component={Shop} />
     <Route path='faq'   title={title("FAQ")} component={FAQ} />
-    <Route path='how-we-work' title={title("FAQ")} component={HowWeWork} />
+    <Route path='how-we-work' title={title("How We Work")} component={HowWeWork} />
+    <Route path='transparency' title={title("Transparency")} component={Transparency} />
     <Route path='contact' title={title("Contact")} component={Contact} />
     <Route path='account' title={title("Account")} component={NotFound} />
     <Route path='admin' title={title("Admin")} component={NotFound} />
