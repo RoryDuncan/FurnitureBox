@@ -25,10 +25,10 @@ export class Navigation extends React.Component {
       <nav className={cx('site-links')}>
         <ul>
           <li>
-            <Link to="/how-it-works">How It Works</Link>
+            <Link to="/how-we-work">How We Work</Link>
           </li>
           <li>
-            
+
           </li>
           <li>
             
