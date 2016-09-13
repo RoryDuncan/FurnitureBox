@@ -26,28 +26,6 @@ export class Home extends React.Component {
             <li>
               Cart persistance through Local Storage
             </li>
-            <li>Pages to add:
-              <ul>
-                <li>
-                  <details>
-                    <summary>How it Works page</summary>
-                    <p>A page explaining how our processes work</p>
-                  </details>
-                </li>
-                <li>
-                  <details>
-                      <summary>Transparency page</summary>
-                      <p>A page discussing the transparency of our product.</p>
-                  </details>
-                </li>
-                <li>
-                  <details>
-                    <summary>Administration Pages</summary>
-                    <p>Page for controlling aspects of the rest of the site.</p>
-                  </details>
-                </li>
-              </ul>
-            </li>
             <li>Stylize Site</li>
           </ul>
         </div>
