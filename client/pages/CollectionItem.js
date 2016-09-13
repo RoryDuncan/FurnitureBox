@@ -2,10 +2,19 @@ import React from 'react';
 import classnames from 'classnames/bind';
 import s from '../components/styles/ProductItem.styl';
 
+let humanReadableDate = (dateString) => {
+  let d = new Date(dateString || "")
+  if (d.toString() === "Invalid Date") return null;
+  return d.toString();
+}
+
+
 const cx = classnames.bind(s);
 export const CollectionItemPage = (props) => {
   
   console.log(props);
+  
+  let dateAdded = humanReadableDate(props.attrs.created_at)
   
   return (
     <div>
@@ -28,7 +37,7 @@ export const CollectionItemPage = (props) => {
         <tbody>
           <tr>
             <td>{props.attrs.product_id}</td>
-            <td>{(new Date(props.attrs.created_at)).toString()}</td>
+            <td>{dateAdded}</td>
             <td>{props.attrs.created_at}</td>
           </tr>
         </tbody>
