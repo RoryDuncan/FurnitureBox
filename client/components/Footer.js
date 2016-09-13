@@ -28,10 +28,7 @@ export class Navigation extends React.Component {
             <Link to="/how-we-work">How We Work</Link>
           </li>
           <li>
-
-          </li>
-          <li>
-            
+            <Link to="/transparency">Transparency</Link>
           </li>
         </ul>
       </nav>
