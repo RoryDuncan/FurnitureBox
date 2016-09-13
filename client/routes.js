@@ -9,19 +9,40 @@ import {Shop} from './pages/Shop';
 import {Contact} from './pages/Contact';
 import {NotFound} from './pages/NotFound';
 import {Collections} from './pages/Collections';
-import {collectionPages} from './pages/Collections__rendered';
+import {collectionPages, collectionItemPages} from './pages/Collections__rendered';
 
 import data from './collections.json';
 const site = "ValueLink"
 const title = (page) => `${site} - ${page}`
 
+
 const collectionRoutes = data.keys.map((name, i) =>{
-  return <Route 
-    path={`/collections/${name}`}
-    title={title(`${name} Collection`)}
-    component={collectionPages[name]}
-    key = {i} />
+  
+  let products = null
+  
+  if (data.collections[name].products) {
+    
+    products = data.collections[name].products
+    products = products.map((product, _i) => {
+      let handle = product.attrs.handle;
+      return <Route 
+        path={`/collections/${name}/${handle}`}
+        component={collectionItemPages[name][handle]}
+        key={_i} />
+    });
+    
+  }
+  
+  
+  return (
+    <Route path={`/collections/${name}`} title={title(`${name} Collection`)}
+      component={collectionPages[name]}
+      key={i}>
+        {products}
+      </Route>
+    )
 });
+
 
 
 export const routes = (

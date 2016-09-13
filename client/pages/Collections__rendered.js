@@ -6,6 +6,8 @@ import {
   CollectionDescription,
   Collection
 } from '../components/Collection.js';
+import {CollectionItemPage} from './CollectionItem';
+
 
 
 // Data
@@ -16,14 +18,39 @@ const cx = classnames.bind(s);
 // export all the rendered things into this
 export const collectionPages = {};
 
-
-
+export const collectionItemPages = {};
 
 data.keys.map((name, i) => {
-  
+
   let props = collections[name];
+  collectionItemPages[name] = {};
+
+  // generate CollectionItem Pages
+  if (props.products) {
+    let products = props.products;
+    
+    products.map((product, i) => {
+      let handle = product.attrs.handle;
+      collectionItemPages[name][handle] = (_props) => {
+        return <CollectionItemPage {...product} />;
+      }
+    });
+  }
   
   collectionPages[name] = (parameterProps) => {
+    
+    
+    if (parameterProps.children) {
+      return (
+        <div>
+          <div className={cx('site-title')}>
+            {parameterProps.children}
+          </div>
+        </div>
+      )
+      
+    }
+    
     return (
       <div>
         <div className={cx('site-title')}>
