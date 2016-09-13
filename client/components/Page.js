@@ -7,7 +7,7 @@ import {SiteHeader} from './Header.js';
 import {SiteFooter} from './Footer.js';
 
 // Using CSS Modules so we assign the styles to a variable
-import s from './styles/App.styl';
+import s from './styles/Page.styl';
 const cx = classnames.bind(s);
 
 export const Page = (props) => {
