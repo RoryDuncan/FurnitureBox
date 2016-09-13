@@ -10,7 +10,7 @@ module.exports = {
   devtool: 'source-map',
 
   entry: {
-    app: ['whatwg-fetch', './client/index.js'],
+    app: ['isomorphic-fetch', './client/index.js'],
   },
 
   output: {
@@ -39,9 +39,16 @@ module.exports = {
       routes: './client/routes.js',
       template: './template.js',
     }),
+    new webpack.ProvidePlugin({
+        'Promise': 'bluebird',
+        'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    })
   ],
 
   module: {
+    exprContextRegExp: /$^/,
+    exprContextCritical: false,
+
     loaders: [
       {
         test: /\.js$/,

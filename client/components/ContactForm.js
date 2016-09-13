@@ -3,7 +3,7 @@ import classnames from 'classnames/bind';
 import s from './styles/Forms.styl';
 const cx = classnames.bind(s);
 /* global fetch */
-import 'whatwg-fetch';
+// import 'isomorphic-fetch';
 import './images/ring-alt.gif';
 
 /* fetch / ajax helpers */

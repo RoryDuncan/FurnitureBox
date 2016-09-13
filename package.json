@@ -12,7 +12,7 @@
     "test": "echo 'No tests specified.'",
     "start:dev": "babel-node ./server.js",
     "start": "npm run start:dev",
-    "build:static": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build:static": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js --bail",
     "build": "npm run clean && npm run build:static",
     "update": "babel-node ./scripts/retrieve-shopify-data.js"
   },
@@ -41,6 +41,7 @@
     "classnames": "^2.2.5",
     "cross-env": "^2.0.0",
     "css-loader": "^0.23.1",
+    "es6-promise": "^3.3.0",
     "eslint": "^3.2.2",
     "eslint-config-rackt": "^1.1.1",
     "eslint-plugin-react": "^5.1.1",
@@ -48,6 +49,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "history": "^2.1.1",
+    "isomorphic-fetch": "^2.2.1",
     "json-loader": "^0.5.4",
     "jsonfile": "^2.3.1",
     "moment": "^2.15.0",
@@ -72,6 +74,8 @@
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
+    "exports-loader": "^0.6.3",
+    "imports-loader": "^0.6.5",
     "stylus": "~0.54.5"
   }
 }
