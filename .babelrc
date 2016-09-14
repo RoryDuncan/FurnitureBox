@@ -5,10 +5,19 @@
       "presets": ["react-hmre"]
     }
   },
-  "plugins": [ 
-    "extract-format-message", {
-      "generateId": "underscored_crc32",
-      "outFile": "locales/en.json"
-    } 
+  "plugins": [
+    
+    [
+      "extract-format-message", {
+        "generateId": "underscored_crc32",
+        "outFile": "locales/en.json"
+      } 
+    ],
+    
+    [ "transform-format-message", {
+        "generateId": "underscored_crc32",
+        "inline": false
+      } 
+    ]
   ]
 }

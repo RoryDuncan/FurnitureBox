@@ -75,7 +75,9 @@
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
+    "babel-plugin-transform-format-message": "^4.1.0",
     "exports-loader": "^0.6.3",
+    "format-message-cli": "^4.1.0",
     "imports-loader": "^0.6.5",
     "stylus": "~0.54.5"
   }
