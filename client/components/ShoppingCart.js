@@ -228,7 +228,7 @@ let cartDetails = {
     id: "cart:item",
     default: 'Item',
     description: "The heading for the cart's column 'item', indicating the name of the product."
-  })
+  }),
   
   'price': formatMessage({
     id: "cart:price",
