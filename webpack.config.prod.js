@@ -64,6 +64,14 @@ module.exports = {
         test: /\.js$/,
         loaders: ['babel'],
         exclude: path.join(__dirname, 'node_modules'),
+        plugins: [
+          [ "transform-format-message", {
+              "generateId": "underscored_crc32",
+              "inline": true,
+              "locale": locale
+            } 
+          ]
+        ]
       },
       {
         test: /\.json$/,
