@@ -314,12 +314,6 @@ let nameFieldLabel = formatMessage({
   description: "The label for the input where the user inputs their name."
 })
 
-let nameFieldLabel = formatMessage({
-  id: "contact:name_field_label",
-  default: "Name",
-  description: "The label for the input where the user inputs their name."
-})
-
 let emailFieldLabel = formatMessage({
   id: "contact:email_field_label",
   default: "Email",
