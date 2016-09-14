@@ -25,7 +25,6 @@ export class Catalog extends React.Component {
     return (
       <div className={cx("catalog")}>
       <ShoppingCart />
-      <hr />
       {RenderedCatalog}
       </div>
     )
