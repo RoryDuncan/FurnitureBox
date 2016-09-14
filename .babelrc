@@ -16,7 +16,7 @@
     
     [ "transform-format-message", {
         "generateId": "underscored_crc32",
-        "inline": false
+        "inline": true
       } 
     ]
   ]

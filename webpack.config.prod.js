@@ -6,6 +6,16 @@ var axis = require('axis');
 var rupture = require('rupture');
 var ReactStaticPlugin = require('react-static-webpack-plugin');
 
+
+var locale = process.env.LOCALE;
+
+console.log("Building for locale:", locale);
+
+if (!locale) {
+  throw new Error("Locale not provided as an environment variable. i.e.,  'LOCALE=en'.");
+}
+
+
 module.exports = {
   devtool: 'source-map',
 
@@ -14,7 +24,7 @@ module.exports = {
   },
 
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'public', locale),
     filename: '[name].js',
     publicPath: '/',
   },
@@ -84,5 +94,5 @@ module.exports = {
 
   stylus: {
     use: [axis(), rupture()],
-  },
+  }
 };

@@ -1,1 +1,10 @@
-{}
+{
+  "about:body_text": {
+    "message": "Welcome to the about page",
+    "description": "The About Page's body text"
+  },
+  "about:page_title": {
+    "message": "About",
+    "description": "The About Page's title"
+  }
+}
