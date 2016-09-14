@@ -6,5 +6,309 @@
   "about:page_title": {
     "message": "About",
     "description": "The About Page's title"
+  },
+  "cart:add_to_cart_text": {
+    "message": "Add to Cart",
+    "description": "The button text for adding an item to the cart."
+  },
+  "cart:async_btn_text": {
+    "message": "Working...",
+    "description": "The text displayed while a cart item is being added to the cart, while waiting for a server response."
+  },
+  "cart:cart_empty": {
+    "message": "Your cart is empty",
+    "description": "The text to display when there are no items inside of the cart."
+  },
+  "cart:cart_title": {
+    "message": "Your Cart",
+    "description": "The text displayed at the top of the cart indicating that it is the user's shopping cart."
+  },
+  "cart:checkout_text": {
+    "message": "Checkout",
+    "description": "The button text for checking out the cart items, proceeding to payment."
+  },
+  "cart:item": {
+    "message": "Item",
+    "description": "The heading for the cart's column 'item', indicating the name of the product."
+  },
+  "cart:price": {
+    "message": "Price",
+    "description": "The heading for the cart's column 'price', indicating the cost of the product."
+  },
+  "cart:quantity": {
+    "message": "Quantity",
+    "description": "The heading for the cart's column 'quantity', indicating that the column contains the number of items"
+  },
+  "cart:remove_from_cart_text": {
+    "message": "Remove from Cart",
+    "description": "The button text for removing an item from the cart."
+  },
+  "cart:remove_from_cart_text_variant": {
+    "message": "Remove",
+    "description": "The button text for removing an item from the cart."
+  },
+  "cart:subtotal_label": {
+    "message": "Subtotal:",
+    "description": "The text before the amount of currency that the sum of the items in the cart amount to."
+  },
+  "collection:learn_more_link": {
+    "message": "Learn about the { name } Collection",
+    "description": "Link text, linking to a collection page where the user can learn more about the collection."
+  },
+  "collection:shop_this_collection_btn": {
+    "message": "Shop this Collection",
+    "description": "Button text, taking the user to the shop where they can buy products of the current collection."
+  },
+  "collection:view_collection_link": {
+    "message": "View the { name } Collection",
+    "description": "Link text, link the user to the collection's page."
+  },
+  "collections:collection_items_heading": {
+    "message": "Items in Collection:",
+    "description": "A heading before a list of items within a single collection."
+  },
+  "collections:page_title": {
+    "message": "Collections",
+    "description": "The Collections Page's title"
+  },
+  "concept: none": {
+    "message": "none",
+    "description": "The concept or idea of 'none', or 'zero'."
+  },
+  "concept:collection": {
+    "message": "Collection",
+    "description": "The concept of a collection, or group of items."
+  },
+  "concept:currencySymbol": {
+    "message": "$",
+    "description": "The currency symbol used."
+  },
+  "concept:or": {
+    "message": "or",
+    "description": "The word 'or' when used in a choice. i.e., 'apples or oranges'"
+  },
+  "contact:contact_form_title": {
+    "message": "Send A Message",
+    "description": "The title to the contact form, letting the user know what the form does."
+  },
+  "contact:email_field_label": {
+    "message": "Email",
+    "description": "The label for the input where the user inputs their email address."
+  },
+  "contact:loading_spinner_alttext": {
+    "message": "Sending your message",
+    "description": "Screen Reader / Alternative text for a loading spinner, while sending a message."
+  },
+  "contact:message_field_label": {
+    "message": "Message",
+    "description": "The label for the text area where the user types their message."
+  },
+  "contact:message_sent": {
+    "message": "Your message was successfully sent!",
+    "description": "Text notifying the user that their message was sent without any errors or problems."
+  },
+  "contact:message_sent_details": {
+    "message": "Thanks for reaching out, we will get back to you as fast as we can!",
+    "description": "Text giving the user information on what to expect after a message was sent."
+  },
+  "contact:name_field_label": {
+    "message": "Name",
+    "description": "The label for the input where the user inputs their name."
+  },
+  "contact:page_title": {
+    "message": "Contact",
+    "description": "The Contact Page's title"
+  },
+  "contact:reason_for_contact_dropdown_label": {
+    "message": "Reason for Contact",
+    "description": "Text for a dropdown menu with options describing why they're contacting us"
+  },
+  "contact:reason_for_contact_dropdown_option_feedback": {
+    "message": "Give Feedback",
+    "description": "Text for a dropdown menu option, in which the user wants to provide feedback about anything related to our service or product"
+  },
+  "contact:reason_for_contact_dropdown_option_problem": {
+    "message": "Problem with Order",
+    "description": "Text for a dropdown menu option, in which the user is contacting us about a problem with their order"
+  },
+  "contact:reason_for_contact_dropdown_option_question": {
+    "message": "I Have a Question",
+    "description": "Text for a dropdown menu option, in which the user wants to ask a question or get more information"
+  },
+  "contact:reason_for_contact_dropdown_option_saying_hello": {
+    "message": "Saying Hello",
+    "description": "Text for a dropdown menu option, in which the user is contacting us to 'say hello'"
+  },
+  "contact:send_message_btn": {
+    "message": "Send",
+    "description": "The button text for submitting a contact form, resulting in a sent message."
+  },
+  "contact:sending_message_btn": {
+    "message": "Sending...",
+    "description": "The button text after clicking to submit a contact form. The user is waiting for a response from the server"
+  },
+  "contact:validation_form_has_errors": {
+    "message": "The information you submitted has errors. Please fix them, and then resubmit the form.",
+    "description": "Error message displayed when a contact form is attempted to be sent while it's fields contain errors."
+  },
+  "contact:validation_invalid_email": {
+    "message": "The email you entered is invalid.",
+    "description": "Error message displayed when a contact form is attempted to be sent with an invalid email address field."
+  },
+  "contact:validation_invalid_message": {
+    "message": "Your message is empty.",
+    "description": "Error message displayed when a contact form is attempted to be sent with an empty message field."
+  },
+  "contact:validation_invalid_name": {
+    "message": "Your name can not be empty.",
+    "description": "Error message displayed when a contact form is attempted to be sent with an invalid name field."
+  },
+  "contact:validation_invalid_reason": {
+    "message": "The reason you provided is invalid. Use the dropdown menu to select a reason.",
+    "description": "Error message displayed when a contact form is attempted to be sent with an invalid reason."
+  },
+  "faq:description": {
+    "message": "Refer to the Questions and Answers below before. If you don''t find your question contact us and we''ll answer it.",
+    "description": "The Frequently Asked Questions description text, describing what the FAQ is used for."
+  },
+  "faq:no_questions_yet": {
+    "message": "We haven''t been asked very many question yet.",
+    "description": "The Frequently Asked Questions page text, before we add questions and answers to it."
+  },
+  "faq:page_title": {
+    "message": "Frequently Asked Questions",
+    "description": "The Frequently Asked Questions Page's title"
+  },
+  "footer:site_name": {
+    "message": "Value-Link",
+    "description": "The text before the copyright symbol, at the footer of the page."
+  },
+  "header:brand_name": {
+    "message": "Value-Link",
+    "description": "The Brand Name"
+  },
+  "home:page_description": {
+    "message": "This is the homepage of Value Link",
+    "description": "The Home Page's description or Value Link's business motto"
+  },
+  "home:page_title": {
+    "message": "Value Link",
+    "description": "The Home Page's title"
+  },
+  "how_we_work:how_we_work_paragraph1": {
+    "message": "How We Work",
+    "description": "The How We Work Page's title"
+  },
+  "how_we_work:page_description": {
+    "message": "Learn the intricate processes of Value Link",
+    "description": "The How We Work Page's description"
+  },
+  "how_we_work:page_title": {
+    "message": "How We Work",
+    "description": "The How We Work Page's title"
+  },
+  "navigation:about_link_text": {
+    "message": "About",
+    "description": "The link text for navigating to the 'about' page."
+  },
+  "navigation:collections_link_text": {
+    "message": "Collections",
+    "description": "The link text for navigating to the 'collections' page."
+  },
+  "navigation:contact_link_text": {
+    "message": "Contact",
+    "description": "The link text for navigating to the 'contact' page."
+  },
+  "navigation:faq_link_text": {
+    "message": "FAQ",
+    "description": "The link text for navigating to the 'faq' page."
+  },
+  "navigation:home_link_text": {
+    "message": "Home",
+    "description": "The link text for navigating to the 'home' page."
+  },
+  "navigation:how_we_work_link_text": {
+    "message": "How We Work",
+    "description": "The link text for navigating to the 'How We Work' page."
+  },
+  "navigation:shop_link_text": {
+    "message": "Shop",
+    "description": "The link text for navigating to the 'shop' page."
+  },
+  "navigation:transparency_link_text": {
+    "message": "Transparency",
+    "description": "The link text for navigating to the 'Transparency' page."
+  },
+  "not_found:404_description": {
+    "message": "404 Errors happen when a URL is incorrect, or a page that once existed was moved.",
+    "description": "A short summary of what a 404 error is."
+  },
+  "not_found:how_to_continue_heading": {
+    "message": "How to Continue",
+    "description": "The heading of a section describing what steps the user can take next."
+  },
+  "not_found:how_to_continue_step_1": {
+    "message": "Double-check that the URL is correct (i.e., ''shop'' and not ''shpo'')",
+    "description": "The first step, describing how the user can resolve their problem by making sure the url is correct."
+  },
+  "not_found:how_to_continue_step_2": {
+    "message": "If the page should be available, let us know you ran into this problem.",
+    "description": "The next step, describing how the user can contact support."
+  },
+  "not_found:how_to_continue_step_3_1": {
+    "message": "Forget this ever happened.",
+    "description": "The third step that tells the user to move on, or return to shopping."
+  },
+  "not_found:how_to_continue_step_3_2": {
+    "message": "Return to the main site",
+    "description": "The text that links to the homepage"
+  },
+  "not_found:page_subtitle": {
+    "message": "A 404 Error Occurred",
+    "description": "The '404 error, page not found' Page's subtitle"
+  },
+  "not_found:page_title": {
+    "message": "The Page Wasn''t Found",
+    "description": "The '404 error, page not found' Page's title"
+  },
+  "product:details_date_added": {
+    "message": "Date Added",
+    "description": "The table heading 'Date Added'"
+  },
+  "product:details_pid": {
+    "message": "PID",
+    "description": "The table heading 'PID', short for Product ID"
+  },
+  "product:details_tags": {
+    "message": "Tags",
+    "description": "The table heading 'Tags'"
+  },
+  "product:details_type": {
+    "message": "Type",
+    "description": "The table heading 'Type'. Type examples: 'desk' or 'sofa'."
+  },
+  "product:img_alt_text": {
+    "message": "Image of the '{'product_title'}' item",
+    "description": "Alternative text describing the product image."
+  },
+  "product_item:product_image_alt_text": {
+    "message": "Preview of { title }",
+    "description": "The screen reader compatible alternative text for a product's image"
+  },
+  "product_item:product_image_placeholder_text": {
+    "message": "No image available for this product yet",
+    "description": "The screen reader compatible alternative text for a product that is missing an image."
+  },
+  "shop:page_title": {
+    "message": "Shop",
+    "description": "The Shop Page's title"
+  },
+  "transparency:content_paragraph": {
+    "message": "todo",
+    "description": "The Transparency page's content paragraph, describing the transparency of our brand."
+  },
+  "transparency:page_title": {
+    "message": "Transparency",
+    "description": "The Transparency Page's title"
   }
 }
