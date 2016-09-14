@@ -38,9 +38,6 @@ export const collectionItemPages = {};
 data.keys.map((name, i) => {
 
   let props = collections[name];
-  
-
-
   collectionItemPages[name] = {};
 
   // generate CollectionItem Pages
