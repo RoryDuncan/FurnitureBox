@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import ShopifyBuy from 'shopify-buy';
 import {AddToCartButton} from './ShoppingCart.js';
+import formatMessage from 'format-message';
 
 // styling
 import classnames from 'classnames/bind';
@@ -9,25 +10,44 @@ import s from './styles/ProductItem.styl';
 const cx = classnames.bind(s);
 
 
+// i18n
+let productItemPlaceholderText = formatMessage({
+  id: "product_item:product_image_placeholder_text",
+  default: "No image available for this product yet",
+  description: "The screen reader compatible alternative text for a product that is missing an image."
+})
+
+
+/* stateless components */
+
 export const ProductImagePlaceHolder = (props) => {
   let src = ShopifyBuy.NO_IMAGE_URI;
   return (
-    <img src={src} alt="No image available yet." title="We don't have an image for this product yet. Sorry!" />
+    <img src={src} alt={productItemPlaceholderText} title={productItemPlaceholderText} />
   )
 }
 
-
-
 export const ProductImage = (props) => {
+
+  // i18n
+  let productItemImageAltText = formatMessage({
+    id: "product_item:product_image_alt_text",
+    default: "Preview of {title}",
+    description: "The screen reader compatible alternative text for a product's image"
+  }, {title: props.attrs.title})
 
   let src = props.attrs.images[0].src;
 
   return (
     <img  className={cx("product-image")} 
-          src={src} alt={`${props.attrs.title} Image`}
+          src={src} alt={productItemImageAltText}
           title={props.attrs.title} />
   )
 }
+
+
+/* Components */
+
 
 export class ProductItem extends React.Component {
   
