@@ -12,6 +12,7 @@
     "test": "echo 'No tests specified.'",
     "start:dev": "babel-node ./server.js",
     "start": "npm run start:dev",
+    "get-locale-data": "format-message extract 'client/**/*.js' > ./locales/en.json",
     "build:en": "cross-env NODE_ENV=production LOCALE=en webpack --config webpack.config.prod.js --progress --bail",
     "build:ja": "cross-env NODE_ENV=production LOCALE=ja webpack --config webpack.config.prod.js --progress --bail",
     "build:static": "npm run build:en",
