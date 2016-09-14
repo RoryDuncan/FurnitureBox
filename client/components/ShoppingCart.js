@@ -1,12 +1,76 @@
 import React from 'react';
 import { Link } from 'react-router';
 import collections from '../collections.json'
+import formatMessage from 'format-message';
 
 // styling
 import classnames from 'classnames/bind';
 import s from './styles/ShoppingCart.styl';
 const cx = classnames.bind(s);
 import './images/ring-alt.gif';
+
+// i18n
+let addToCartText = formatMessage({
+  id: "cart:add_to_cart_text",
+  default: "Add to Cart",
+  description: "The button text for adding an item to the cart."
+})
+
+let removeFromCartText = formatMessage({
+  id: "cart:remove_from_cart_text",
+  default: "Remove from Cart",
+  description: "The button text for removing an item from the cart."
+})
+
+let removeFromCartTextVariant = formatMessage({
+  id: "cart:remove_from_cart_text_variant",
+  default: "Remove",
+  description: "The button text for removing an item from the cart."
+})
+
+let checkoutButtonText = formatMessage({
+  id: "cart:checkout_text",
+  default: "Checkout",
+  description: "The button text for checking out the cart items, proceeding to payment."
+})
+
+let orText = formatMessage({
+  id: "concept:or",
+  default: "or",
+  description: "The word 'or' when used in a choice. i.e., 'apples or oranges'"
+})
+
+let cartAsyncButtonText = formatMessage({
+  id: "cart:async_btn_text",
+  default: "Working...",
+  description: "The text displayed while a cart item is being added to the cart, while waiting for a server response."
+})
+
+let subtotalLabel = formatMessage({
+  id: "cart:subtotal_label",
+  default: "Subtotal:",
+  description: "The text before the amount of currency that the sum of the items in the cart amount to."
+})
+
+let currencySymbol = formatMessage({
+  id: "concept:currencySymbol",
+  default: "$",
+  description: "The currency symbol used."
+})
+
+let cartEmptyText = formatMessage({
+  id: "cart:cart_empty",
+  default: "Your cart is empty",
+  description: "The text to display when there are no items inside of the cart."
+})
+
+let shoppingCartText = formatMessage({
+  id: "cart:cart_title",
+  default: "Your Cart",
+  description: "The text displayed at the top of the cart indicating that it is the user's shopping cart."
+})
+
+
 
 import {client, ShoppingCartModel} from '../cart.js';
 
@@ -97,7 +161,7 @@ export class AddToCartButton extends React.Component {
   
   render() {
     
-    let text = "Add to Cart";
+    let text = {addToCartText};
     let action = this.addToCart;
     let addToCartButtonClasses = cx({
       "add-to-cart": true,
@@ -107,14 +171,18 @@ export class AddToCartButton extends React.Component {
     });
     
     if (this.state.inCart) {
-      text = "Remove from Cart";
+      text = {removeFromCartText};
       action = this.removeFromCart;
       
       return (
         <div className={cx("add-to-cart-actions")}>
-          <button className={addToCartButtonClasses} onClick={action}>{text}</button>
-          <em className={cx("in-between-button")}>&ndash; or &ndash;</em>
-          <button className={cx("checkout")} onClick={this.checkout}>Checkout</button>
+          <button className={addToCartButtonClasses} onClick={action}>
+            {text}
+          </button>
+          <em className={cx("in-between-button")}>&ndash; {orText} &ndash;</em>
+          <button className={cx("checkout")} onClick={this.checkout}>
+            {checkoutButtonText}
+          </button>
         </div>
       )
     }
@@ -124,8 +192,8 @@ export class AddToCartButton extends React.Component {
         <div  className={cx("add-to-cart-actions")}>
           <button 
             className={addToCartButtonClasses}>
-            Working...
-            <img className={cx("loading-spinner")} src="ring-alt.gif" alt="loading" />
+            {cartAsyncButtonText}
+            <img className={cx("loading-spinner")} src="ring-alt.gif" alt={cartAsyncButtonText} />
           </button>
         </div>
       )  
@@ -139,6 +207,34 @@ export class AddToCartButton extends React.Component {
       </div>
     )
   }
+}
+
+
+let cartDetails = {
+  
+  'pid': formatMessage({
+    id: "product:details_pid",
+    default: 'PID',
+    description: "The table heading 'PID', short for Product ID"
+  }),
+  
+  'quantity': formatMessage({
+    id: "cart:quantity",
+    default: 'Quantity',
+    description: "The heading for the cart's column 'quantity', indicating that the column contains the number of items"
+  }),
+  
+  'item': formatMessage({
+    id: "cart:item",
+    default: 'Item',
+    description: "The heading for the cart's column 'item', indicating the name of the product."
+  })
+  
+  'price': formatMessage({
+    id: "cart:price",
+    default: 'Price',
+    description: "The heading for the cart's column 'price', indicating the cost of the product."
+  })
 }
 
 
@@ -190,7 +286,7 @@ export class ShoppingCart extends React.Component {
   
   render() {
     
-    let innerContent = <p> Working... </p>
+    let innerContent = <p> {cartAsyncButtonText} </p>
     let cartItemCount = null;
     let checkoutButton = null;
     let subtotal = null;
@@ -206,12 +302,12 @@ export class ShoppingCart extends React.Component {
           innerContent = <ListOfCartItems cartItems={this.state.cartItems} />
           
           // checkout button
-          checkoutButton = <button onClick={this.checkout} className={cx("checkout-button")}>Checkout</button>
+          checkoutButton = <button onClick={this.checkout} className={cx("checkout-button")}>{checkoutButtonText}</button>
           
-          subtotal = <div className={cx("subtotal")}><strong>Subtotal:</strong> ${cart.cart.subtotal}</div>;
+          subtotal = <div className={cx("subtotal")}><strong>{subtotalLabel}</strong> {currencySymbol}{cart.cart.subtotal}</div>;
         }
         else {
-          innerContent = <p className={cx("muted")}>Your cart is empty</p>;
+          innerContent = <p className={cx("muted")}>{cartEmptyText}</p>;
         }
     }
     
@@ -223,7 +319,9 @@ export class ShoppingCart extends React.Component {
           <i className="material-icons">shopping_cart</i>
         </button>
         <div className={cx("cart-items-wrapper")}>
-          <h3><i className="material-icons">shopping_cart</i> Your Cart </h3>
+          <h3><i className="material-icons">shopping_cart</i>
+            {shoppingCartText}
+          </h3>
           {innerContent}
           {checkoutButton}
           {subtotal}
@@ -243,10 +341,10 @@ export const ListOfCartItems = (props) => {
       <thead>
         <tr>
           <td>&mdash;</td>
-          <td>Item</td>
-          <td>PID</td>
-          <td>Quantity</td>
-          <td>Price</td>
+          <td>{cartDetails.item}</td>
+          <td>{cartDetails.pid}</td>
+          <td>{cartDetails.quantity}</td>
+          <td>{cartDetails.price}</td>
         </tr>
       </thead>
       <tbody>
@@ -299,9 +397,9 @@ export class CartItem extends React.Component {
           value={this.props.attrs.quantity}
           onChange={this.changeQuantity} />
         </td>
-        <td className={cx("cart-item-price")}>${this.props.attrs.price}</td>
+        <td className={cx("cart-item-price")}>{currencySymbol}{this.props.attrs.price}</td>
         <td className={cx("cart-item-remove")}>
-          <button onClick={this.removeItem}>Remove</button>
+          <button onClick={this.removeItem}>{removeFromCartTextVariant}</button>
         </td>
       </tr>
     )
