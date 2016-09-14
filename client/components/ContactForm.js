@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames/bind';
 import s from './styles/Forms.styl';
+import formatMessage from 'format-message';
 const cx = classnames.bind(s);
 /* global fetch */
 // import 'isomorphic-fetch';
@@ -21,11 +22,80 @@ const parseJSON = (response) => {
   return response.json()
 }
 
+// i18n
+let loadingSpinnerAltText = formatMessage({
+  id: "contact:loading_spinner_alttext",
+  default: "Sending your message",
+  description: "Screen Reader / Alternative text for a loading spinner, while sending a message."
+})
+
+let invalidEmail = formatMessage({
+  id: "contact:validation_invalid_email",
+  default: "The email you entered is invalid.",
+  description: "Error message displayed when a contact form is attempted to be sent with an invalid email address field."
+})
+
+let invalidName = formatMessage({
+  id: "contact:validation_invalid_name",
+  default: "Your name can not be empty.",
+  description: "Error message displayed when a contact form is attempted to be sent with an invalid name field."
+})
+
+let invalidReason = formatMessage({
+  id: "contact:validation_invalid_reason",
+  default: "The reason you provided is invalid. Use the dropdown menu to select a reason.",
+  description: "Error message displayed when a contact form is attempted to be sent with an invalid reason."
+})
+
+let invalidMessage = formatMessage({
+  id: "contact:validation_invalid_message",
+  default: "Your message is empty.",
+  description: "Error message displayed when a contact form is attempted to be sent with an empty message field."
+})
+
+let formIsInvalidWarning = formatMessage({
+  id: "contact:validation_form_has_errors",
+  default: "The information you submitted has errors. Please fix them, and then resubmit the form.",
+  description: "Error message displayed when a contact form is attempted to be sent while it's fields contain errors."
+})
+
+let sendMessageBtnText = formatMessage({
+  id: "contact:send_message_btn",
+  default: "Send",
+  description: "The button text for submitting a contact form, resulting in a sent message."
+})
+
+let sendingMessageBtnText = formatMessage({
+  id: "contact:sending_message_btn",
+  default: "Sending...",
+  description: "The button text after clicking to submit a contact form. The user is waiting for a response from the server"
+})
+
+let messageSentText = formatMessage({
+  id: "contact:message_sent",
+  default: "Your message was successfully sent!",
+  description: "Text notifying the user that their message was sent without any errors or problems."
+})
+
+let messageSentDetails = formatMessage({
+  id: "contact:message_sent_details",
+  default: "Thanks for reaching out, we will get back to you as fast as we can!",
+  description: "Text giving the user information on what to expect after a message was sent."
+})
+
+
+let ContactFormTitle = formatMessage({
+  id: "contact:contact_form_title",
+  default: "Send A Message",
+  description: "The title to the contact form, letting the user know what the form does."
+})
+ 
+
 
 /* Stateless components*/
 
 const LoadingSpinner = () => {
-  return <img className={cx("loading-spinner")} src="ring-alt.gif" alt="Sending your message" />
+  return <img className={cx("loading-spinner")} src="ring-alt.gif" alt={loadingSpinnerAltText} />
 }
 
 const ErrorField = (props) => {
@@ -79,13 +149,13 @@ export class LabelAndInput extends React.Component {
     let error = null;
     if (this.state.isInvalid) {
       error = (
-        <ErrorField message="The email you entered is invalid." />
+        <ErrorField message={invalidEmail} />
       )
     }
     
     if (this.state.isEmpty) {
       error = (
-        <ErrorField message="Your name can not be empty." />
+        <ErrorField message={invalidName} />
       )
     }
     
@@ -129,7 +199,7 @@ export class TextArea extends LabelAndInput {
     let error = null;
     
     if (this.state.isEmpty) {
-      error = <ErrorField message="Your message is empty." />
+      error = <ErrorField message={invalidMessage} />
       
     }
     
@@ -174,7 +244,7 @@ export class DropdownMenu extends LabelAndInput {
     let error = null;
     
     if (this.state.isInvalid) {
-      error =  <ErrorField message="The reason you provided is invalid. Use the dropdown menu to select a reason." />
+      error =  <ErrorField message={invalidReason} />
     }
     
     // if the options property is passed, use it, otherwise default to 
@@ -201,6 +271,68 @@ export class DropdownMenu extends LabelAndInput {
     )
   }
 }
+
+
+// i18n
+
+let reasonForContactDropdown = {
+  
+  label: formatMessage({
+    id: "contact:reason_for_contact_dropdown_label",
+    default: "Reason for Contact",
+    description: "Text for a dropdown menu with options describing why they're contacting us"
+  }),
+  
+  hello: formatMessage({
+    id: "contact:reason_for_contact_dropdown_option_saying_hello",
+    default: "Saying Hello",
+    description: "Text for a dropdown menu option, in which the user is contacting us to 'say hello'"
+  }),
+  
+  problemWithOrder: formatMessage({
+    id: "contact:reason_for_contact_dropdown_option_problem",
+    default: "Problem with Order",
+    description: "Text for a dropdown menu option, in which the user is contacting us about a problem with their order"
+  }),
+  
+  question: formatMessage({
+    id: "contact:reason_for_contact_dropdown_option_question",
+    default: "I Have a Question",
+    description: "Text for a dropdown menu option, in which the user wants to ask a question or get more information"
+  }),
+  
+  feedback: formatMessage({
+    id: "contact:reason_for_contact_dropdown_option_feedback",
+    default: "Give Feedback",
+    description: "Text for a dropdown menu option, in which the user wants to provide feedback about anything related to our service or product"
+  })
+};
+
+let nameFieldLabel = formatMessage({
+  id: "contact:name_field_label",
+  default: "Name",
+  description: "The label for the input where the user inputs their name."
+})
+
+let nameFieldLabel = formatMessage({
+  id: "contact:name_field_label",
+  default: "Name",
+  description: "The label for the input where the user inputs their name."
+})
+
+let emailFieldLabel = formatMessage({
+  id: "contact:email_field_label",
+  default: "Email",
+  description: "The label for the input where the user inputs their email address."
+})
+
+let messageFieldLabel = formatMessage({
+  id: "contact:message_field_label",
+  default: "Message",
+  description: "The label for the text area where the user types their message."
+})
+  
+
 
 export class ContactForm extends React.Component {
   
@@ -312,44 +444,40 @@ export class ContactForm extends React.Component {
       "loading": this.state.loading
     }
     
-    let submitText = "Send";
+    let submitText = sendMessageBtnText;
     let loadingImage = <LoadingSpinner />;
     
     if (this.state.loading) {
-      submitText = "Sending...";
+      submitText = sendingMessageBtnText;
     } else {
       loadingImage = null;
     }
     
     if (this.state.hasErrors) {
-      errors = <WarningField message="The information you submitted has errors. Please fix them, and then resubmit the form." />
+      errors = <WarningField message={formIsInvalidWarning} />
     } else if (this.state.submitted) {
       return (
         <div>
-          <h3>Your message was successfully sent!</h3>
-          <p>Thanks for reaching out, we will get back to you as fast as we can!</p>
+          <h3>{messageSentText}</h3>
+          <p>{messageSentDetails}</p>
         </div>
       );
     }
     
     return (
       <form onSubmit={this.onSubmit}  ref="form" action={this.props.action} method={this.props.method} className={cx(formClasses)}>
-        <h3>Send A Message</h3>
-        <h5>Your Information</h5>
+        <h3>{ContactFormTitle}</h3>
         {errors}
-        <DropdownMenu 
-          ref="reason" 
-          label="Reason for Contact" 
-          value="saying-hello">
-            <option value="saying-hello">Saying Hello</option>
-            <option value="problem">Problem with Order</option>
-            <option value="question">I Have a Question</option>
-            <option value="feedback">Feedback</option>
+        <DropdownMenu ref="reason" label={reasonForContactDropdown.label} value="saying-hello">
+            <option value="saying-hello">{reasonForContactDropdown.hello}</option>
+            <option value="problem">{reasonForContactDropdown.problem}</option>
+            <option value="question">{reasonForContactDropdown.question}</option>
+            <option value="feedback">{reasonForContactDropdown.feedback}</option>
         </DropdownMenu>
       
-        <LabelAndInput ref="name" label="Name" type="text"  />
-        <LabelAndInput ref="email" label="Email" type="email"  />
-        <TextArea label="Message" ref="message" />
+        <LabelAndInput ref="name" label={nameFieldLabel} type="text"  />
+        <LabelAndInput ref="email" label={emailFieldLabel} type="email"  />
+        <TextArea label={messageFieldLabel} ref="message" />
         
         <button type="submit">
           {submitText} {loadingImage}
