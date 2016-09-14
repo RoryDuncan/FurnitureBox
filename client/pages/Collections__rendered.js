@@ -7,12 +7,27 @@ import {
   Collection
 } from '../components/Collection.js';
 import {CollectionItemPage} from './CollectionItem';
-
+import formatMessage from 'format-message';
 
 
 // Data
 const collections = data.collections;
 const cx = classnames.bind(s);
+
+
+// i18n
+let pageTitleSuffix = formatMessage({
+  id: "concept:collection",
+  default: `Collection`,
+  description: "The concept of a collection, or group of items."
+})
+
+let itemsInCollectionsText = formatMessage({
+  id: "collections:collection_items_heading",
+  default: 'Items in Collection:',
+  description: 'A heading before a list of items within a single collection.'
+})
+
 
 
 // export all the rendered things into this
@@ -23,6 +38,9 @@ export const collectionItemPages = {};
 data.keys.map((name, i) => {
 
   let props = collections[name];
+  
+
+
   collectionItemPages[name] = {};
 
   // generate CollectionItem Pages
@@ -54,10 +72,10 @@ data.keys.map((name, i) => {
     return (
       <div>
         <div className={cx('site-title')}>
-          <h1>The {props.attrs.title} Collection</h1>
+          <h1>{`${props.attrs.title} ${pageTitleSuffix}`}</h1>
         </div>
         <CollectionDescription name={props.attrs.title} noTitle {...props} />
-        <h2>Items in Collection:</h2>
+        <h2>{itemsInCollectionsText}</h2>
         <Collection name={props.attrs.title} noCommerce products={props.products} />
       </div>
     )
