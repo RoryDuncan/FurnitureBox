@@ -49,7 +49,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({
-        'Promise': 'es6-promise',
+        'Promise': 'bluebird',
         'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     }),
   ],
