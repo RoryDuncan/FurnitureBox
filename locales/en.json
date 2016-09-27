@@ -180,11 +180,11 @@
     "description": "The Frequently Asked Questions Page's title"
   },
   "footer:site_name": {
-    "message": "Value-Link",
+    "message": "FurnitureBox",
     "description": "The text before the copyright symbol, at the footer of the page."
   },
   "header:brand_name": {
-    "message": "Value-Link",
+    "message": "FurnitureBox",
     "description": "The Brand Name"
   },
   "home:page_description": {

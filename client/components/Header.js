@@ -12,7 +12,7 @@ const cx = classnames.bind(s);
 
 let brand = formatMessage({
   id: "header:brand_name",
-  default: "Value-Link",
+  default: "FurnitureBox",
   description: "The Brand Name"
 })
 

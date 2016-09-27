@@ -5,7 +5,7 @@ import formatMessage from 'format-message';
 
 let siteName = formatMessage({
   id: "footer:site_name",
-  default: "Value-Link",
+  default: "FurnitureBox",
   description: "The text before the copyright symbol, at the footer of the page."
 })
 
