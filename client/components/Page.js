@@ -18,7 +18,9 @@ export const Page = (props) => {
   return (
     <main className={cx("page")}>
       {header}
-      {props.children}
+      <main className={cx("page-content")}>
+        {props.children}
+      </main>
       {footer}
     </main>
   )
