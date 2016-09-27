@@ -23,6 +23,18 @@ let footerNav = {
     description: "The link text for navigating to the 'Transparency' page."
   }),
   
+  termsOfUse: formatMessage({
+    id: "navigation:termsofuse_link_text",
+    default: "Terms of Use",
+    description: "The link text for navigating to the 'Terms of Use' page."
+  }),
+  
+  privacy: formatMessage({
+    id: "navigation:privacy_link_text",
+    default: "Privacy Policy",
+    description: "The link text for navigating to the 'Privacy Policy' page."
+  }),
+  
   
 }
 
@@ -32,12 +44,28 @@ import s from './styles/Footer.styl';
 const cx = classnames.bind(s);
 
 
+// stateless seperator
+const Sep = () => {
+  return (
+    <span aria-hidden className={cx("sep")}>|</span>
+  )
+}
+
 export class SiteFooter extends React.Component {
   render(){
     return (
       <footer className={cx("site-footer")}>
-        <div className={cx("details")}>&copy; {siteName} {(new Date()).getFullYear()}</div>
+        <h5 class="footer-title">{siteName}</h5>
         <Navigation />
+        <div className={cx("details")}>
+          <div className="info-links">
+            <Link to="/terms-of-use">{footerNav.termsOfUse}</Link>
+            <Sep />
+            <Link to="/privacy">{footerNav.privacy}</Link>
+            <Sep />
+            <span>&copy; {siteName} {(new Date()).getFullYear()}</span>
+          </div>
+        </div>
       </footer>
     )
   }

@@ -1,14 +1,30 @@
 
 @require 'lib/colors'
 
+section-padding = 20px
+
 .site-footer
-  padding-bottom: 20px;
+  padding: section-padding
   background-color: color-bg-dark
   color: color-font-light
   
   a
     color: color-font-light
 
+  .details,
+  .footer-title,
+  .info-links
+    padding: section-padding 0 section-padding 0
+  
+  .details
+    text-align: center
+    
+.sep
+  color: alpha(color-font-light, 0.45)
+  display: inline-block
+  padding-left: 1rem
+  padding-right: 1rem
+  
 nav
   
   ul, ol

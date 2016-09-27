@@ -231,9 +231,17 @@
     "message": "How We Work",
     "description": "The link text for navigating to the 'How We Work' page."
   },
+  "navigation:privacy_link_text": {
+    "message": "Privacy Policy",
+    "description": "The link text for navigating to the 'Privacy Policy' page."
+  },
   "navigation:shop_link_text": {
     "message": "Shop",
     "description": "The link text for navigating to the 'shop' page."
+  },
+  "navigation:termsofuse_link_text": {
+    "message": "Terms of Use",
+    "description": "The link text for navigating to the 'Terms of Use' page."
   },
   "navigation:transparency_link_text": {
     "message": "Transparency",

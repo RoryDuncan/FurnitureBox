@@ -1,11 +1,13 @@
-@require './lib/vars.styl'
+@require 'lib/vars'
+@require 'lib/colors'
 
 *
   box-sizing border-box
 
 body
-  color #333
-  background #f2f2f2
+  color color-font
+  background color-bg-light
   font-family helvetica
-  font-size 18px
-  padding 20px 20px
+  font-size typography-font-size
+  line-height typography-line-height
+  padding 1em 1em
