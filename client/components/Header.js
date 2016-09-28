@@ -71,7 +71,7 @@ export class SiteHeader extends React.Component {
 export class Navigation extends React.Component {
   render(){
     return(
-      <nav className={cx('nav')}>
+      <nav className={cx('navigation-links')}>
         <ol>
           <li>
             <IndexLink to='/' activeClassName={cx('active')}>{navLinks.home}</IndexLink>

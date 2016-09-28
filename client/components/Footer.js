@@ -56,7 +56,18 @@ export class SiteFooter extends React.Component {
     return (
       <footer className={cx("site-footer")}>
         <h5 className={cx("footer-title")}>{siteName}</h5>
-        <Navigation />
+        <div className={cx("navigation-regions")}>
+          
+          <Navigation title="Need Help?">
+            <Link to="/how-we-work">{footerNav.howWeWork}</Link>
+            <Link to="/transparency">{footerNav.transparency}</Link>
+          </Navigation>
+          
+          <Navigation title="Explore">
+            <Link to="/how-we-work">{footerNav.howWeWork}</Link>
+            <Link to="/transparency">{footerNav.transparency}</Link>
+          </Navigation>
+        </div>
         <div className={cx("details")}>
           <div className="info-links">
             <Link to="/terms-of-use">{footerNav.termsOfUse}</Link>
@@ -72,16 +83,21 @@ export class SiteFooter extends React.Component {
 }
 
 export class Navigation extends React.Component {
+  constructor(){
+    super();
+  }
+  
   render(){
-    return(
-      <nav className={cx('site-links')}>
+    
+    // wrap each child in a list item
+    
+    return (
+      <nav className={cx('navigation-region', 'site-links')}>
+        <h5 className={cx('title')}>{this.props.title}</h5>
         <ul>
-          <li>
-            <Link to="/how-we-work">{footerNav.howWeWork}</Link>
-          </li>
-          <li>
-            <Link to="/transparency">{footerNav.transparency}</Link>
-          </li>
+          {this.props.children.map((el) => {
+            return (<li>{el}</li>)
+          })}
         </ul>
       </nav>
     )

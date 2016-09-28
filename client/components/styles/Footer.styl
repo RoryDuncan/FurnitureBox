@@ -1,15 +1,15 @@
 
 @require 'lib/colors'
 
-section-padding = 20px
-
 .site-footer
-  padding: section-padding
+  font-size 0.75em
+  padding: 1em 1em
   background-color: color-bg-dark
   color: color-font-light
   
   a
     color: color-font-light
+    text-decoration: none
 
   .details,
   .footer-title,
@@ -24,12 +24,29 @@ section-padding = 20px
   display: inline-block
   padding-left: 1rem
   padding-right: 1rem
+
+
+.navigation-regions
+  color: color-bg-light
+  display: flex
   
-nav
+  a
+    color: color-bg-light
+  
+  .navigation-region
+    flex-shrink: 1
+    
+    
+.site-links
+  
+  .title
+    font-size: 1em
+    text-transform: uppercase
+    font-weight: 800
   
   ul, ol
-    padding 0 0
+    padding 0em 2em 1em 0em
     list-style none
-    display flex
     li
-      padding 1rem 1rem
+      margin: 0 0
+    
