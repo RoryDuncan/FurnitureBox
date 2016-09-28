@@ -24,7 +24,7 @@ export class Home extends React.Component {
       <Page>
         <div className={cx('site-title')}>
           <div className={cx('hero')}>
-            <img className={cx('hero-img')} alt="FurnitureBox Hero Image" src="http://placehold.it/1200x420" />
+            <img className={cx('hero-img')} alt="FurnitureBox Hero Image" src="http://placehold.it/1200x560" />
             
           </div>
           <h1>{pageTitle}</h1>
