@@ -289,7 +289,7 @@ let reasonForContactDropdown = {
     description: "Text for a dropdown menu option, in which the user is contacting us to 'say hello'"
   }),
   
-  problemWithOrder: formatMessage({
+  problem: formatMessage({
     id: "contact:reason_for_contact_dropdown_option_problem",
     default: "Problem with Order",
     description: "Text for a dropdown menu option, in which the user is contacting us about a problem with their order"
