@@ -16,7 +16,7 @@ export const Page = (props) => {
   let footer = !props.hasFooter ? <SiteFooter /> : false;
   
   return (
-    <main className={cx("page")}>
+    <main className={cx("page", "wrapper")}>
       {header}
       <main className={cx("page-content")}>
         {props.children}
