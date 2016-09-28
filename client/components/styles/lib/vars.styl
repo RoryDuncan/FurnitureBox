@@ -34,16 +34,15 @@ container()
     
     @media (min-width: (breakpoints.short))
       width: (breakpoints.shortest)
-      background-color: #fcc
     
     @media (min-width: (breakpoints.standard))
       width: (breakpoints.short)
-      background-color: #cfc
-      // padding: 0.5em 0.5em
     
     @media (min-width: (breakpoints.long))
       width: (breakpoints.standard)
       font-size: typography-font-size * 1.2
-      background-color: #2cc
-      // padding: 0.5em 0.5em
+      
+    @media (min-width: (breakpoints.longest))
+      width: (breakpoints.standard)
+      font-size: typography-font-size * 1.3
   
