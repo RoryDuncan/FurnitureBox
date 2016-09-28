@@ -161,7 +161,7 @@ export class AddToCartButton extends React.Component {
   
   render() {
     
-    let text = {addToCartText};
+    let text = addToCartText;
     let action = this.addToCart;
     let addToCartButtonClasses = cx({
       "add-to-cart": true,

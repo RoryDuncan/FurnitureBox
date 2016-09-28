@@ -11,3 +11,36 @@ uninteractive()
   user-select none
   pointer-events none
   cursor not-allowed
+
+// responsive
+
+breakpoints = {
+  "shortest":     24em,    // roughly 432px
+  "short":        42em,   // roughly 760px
+  "normal":       54em,  // roughly 960px
+  "long":         66em, // roughly 1200px
+  "longest":      66em // roughly 1920px
+}
+
+
+// responsive mixin
+container()
+  font-size: 1rem
+  width: 96%
+  margin: 0 auto
+  padding: 0 0
+  
+  @media all
+    
+    @media (min-width: (breakpoints.short + 1em))
+      width: breakpoints.md
+      // padding: 0.5em 0.5em
+    
+    @media (min-width: (breakpoints.normal + 1em))
+      width: breakpoints.normal
+      // padding: 0.5em 0.5em
+    
+    @media (min-width: (breakpoints.long + 1em))
+      width: breakpoints.long
+      // padding: 0.5em 0.5em
+  

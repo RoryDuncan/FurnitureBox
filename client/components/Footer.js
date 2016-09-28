@@ -55,7 +55,7 @@ export class SiteFooter extends React.Component {
   render(){
     return (
       <footer className={cx("site-footer")}>
-        <h5 class="footer-title">{siteName}</h5>
+        <h5 className={cx("footer-title")}>{siteName}</h5>
         <Navigation />
         <div className={cx("details")}>
           <div className="info-links">
