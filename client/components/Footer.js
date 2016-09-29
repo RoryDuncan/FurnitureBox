@@ -54,27 +54,29 @@ const Sep = () => {
 export class SiteFooter extends React.Component {
   render(){
     return (
-      <footer className={cx("site-footer", "text-content")}>
-        <h5 className={cx("footer-title")}>{siteName}</h5>
-        <div className={cx("navigation-regions")}>
-          
-          <Navigation title="Need Help?">
-            <Link to="/how-we-work">{footerNav.howWeWork}</Link>
-            <Link to="/transparency">{footerNav.transparency}</Link>
-          </Navigation>
-          
-          <Navigation title="Explore">
-            <Link to="/how-we-work">{footerNav.howWeWork}</Link>
-            <Link to="/transparency">{footerNav.transparency}</Link>
-          </Navigation>
-        </div>
-        <div className={cx("details")}>
-          <div className="info-links">
-            <Link to="/terms-of-use">{footerNav.termsOfUse}</Link>
-            <Sep />
-            <Link to="/privacy">{footerNav.privacy}</Link>
-            <Sep />
-            <span>&copy; {siteName} {(new Date()).getFullYear()}</span>
+      <footer className={cx("site-footer")}>
+        <div className="content">
+          <h5 className={cx("footer-title")}>{siteName}</h5>
+          <div className={cx("navigation-regions")}>
+            
+            <Navigation title="Need Help?">
+              <Link to="/how-we-work">{footerNav.howWeWork}</Link>
+              <Link to="/transparency">{footerNav.transparency}</Link>
+            </Navigation>
+            
+            <Navigation title="Explore">
+              <Link to="/how-we-work">{footerNav.howWeWork}</Link>
+              <Link to="/transparency">{footerNav.transparency}</Link>
+            </Navigation>
+          </div>
+          <div className={cx("details")}>
+            <div className="info-links">
+              <Link to="/terms-of-use">{footerNav.termsOfUse}</Link>
+              <Sep />
+              <Link to="/privacy">{footerNav.privacy}</Link>
+              <Sep />
+              <span>&copy; {siteName} {(new Date()).getFullYear()}</span>
+            </div>
           </div>
         </div>
       </footer>

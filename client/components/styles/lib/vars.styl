@@ -21,8 +21,6 @@ breakpoints = {
   "longest":      107em // 1926px
 }
 
-internal-padding = 5em
-
 // responsive mixin
 container()
   font-size: typography-font-size
@@ -30,22 +28,43 @@ container()
   margin: 0 auto
   padding: 0 0
   
-  & :global .content
+  base-internal-padding = 1em
   
-    padding-left: internal-padding
-    padding-right: internal-padding
+  & :global .content
+    padding-left: base-internal-padding
+    padding-right: base-internal-padding
+  
+  &.content
+    padding-left: base-internal-padding
+    padding-right: base-internal-padding
   
   @media all
     
     @media (min-width: (breakpoints.short))
       width: (breakpoints.shortest)
-    
+      
+      & :global .content
+        padding-left: base-internal-padding * 2
+        padding-right: base-internal-padding * 2
+      
+      &.content
+        padding-left: base-internal-padding * 2
+        padding-right: base-internal-padding * 2
+        
     @media (min-width: (breakpoints.standard))
       width: (breakpoints.short)
     
     @media (min-width: (breakpoints.long))
       width: (breakpoints.standard)
       font-size: typography-font-size * 1.2
+      
+      & :global .content
+        padding-left: base-internal-padding * 5
+        padding-right: base-internal-padding * 5
+      
+      &.content
+        padding-left: base-internal-padding * 5
+        padding-right: base-internal-padding * 5
       
     @media (min-width: (breakpoints.longest))
       width: (breakpoints.standard)

@@ -58,7 +58,7 @@ let navLinks = {
 export class SiteHeader extends React.Component {
   render(){
     return (
-      <div className={cx("site-header")}>
+      <div className={cx("site-header", "content")}>
         <div className={cx("brand")}>
           <i className="material-icons">widgets</i> {brand}
         </div>
