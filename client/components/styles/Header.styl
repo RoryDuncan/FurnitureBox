@@ -15,16 +15,28 @@
   height: 5em
 
 .navigation-links
-  padding: 1.5em 0 0 0
+  padding: 1.5em 0
   align-self: flex-end
   
+  
+
   a
+    padding 1em 1em
     text-decoration: none
     color: color-font-neutral
     font-size: 0.86em
     text-transform: uppercase
+    border: 1px solid transparent
+    border-radius: 50%;
+    transition: 0.15s ease-in all
   
-  ul, ol
+  a:hover
+    border: 1px solid alpha(color-font-neutral, 0.25)
+    border-radius: 0%;
+    transition: 0.2s ease-out border, 0.5s ease-out border-radius
+  
+  ul,
+  ol
     padding 0 0
     margin 0 0
     list-style none
@@ -34,4 +46,4 @@
     li
       flex-grow: 1
       margin: 0 0
-      padding 1em 1em
+      
