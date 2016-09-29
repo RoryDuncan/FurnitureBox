@@ -27,25 +27,27 @@ export class Home extends React.Component {
             <img className={cx('hero-img')} alt="FurnitureBox Hero Image" src="http://placehold.it/1200x560" />
             
           </div>
-          <h1>{pageTitle}</h1>
-          <p>{pageDescription}</p>
+          <div className={cx("text-content")}>
+            <h1>{pageTitle}</h1>
+            <p>{pageDescription}</p>
           
-          <h2>Roadmap</h2>
-          <p>The features and bugs that need apprehending</p>
-          <ul>
-            <li>
-              Internationalization
-              <ul>
-                <li>Shopify Items: 
-                  <a href="https://rory-value-link.myshopify.com/admin/themes/123704833/language" target="_blank">Shopify Language options here</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              Cart persistance through Local Storage
-            </li>
-            <li>Stylize Site</li>
-          </ul>
+            <h2>Roadmap</h2>
+            <p>The features and bugs that need apprehending</p>
+            <ul>
+              <li>
+                Internationalization
+                <ul>
+                  <li>Shopify Items: 
+                    <a href="https://rory-value-link.myshopify.com/admin/themes/123704833/language" target="_blank">Shopify Language options here</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Cart persistance through Local Storage
+              </li>
+              <li>Stylize Site</li>
+            </ul>
+          </div>
         </div>
       </Page>
     );
