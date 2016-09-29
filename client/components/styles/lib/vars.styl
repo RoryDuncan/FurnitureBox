@@ -5,7 +5,6 @@ helvetica = 'Helvetica Neue', Helvetica, Arial, sans-serif
 typography-font-size = 18px
 typography-line-height = 1.618em
 
-
 // Use with inputs / buttons you don't want users to interact with
 uninteractive()
   user-select none
@@ -22,6 +21,7 @@ breakpoints = {
   "longest":      107em // 1926px
 }
 
+internal-padding = 5em
 
 // responsive mixin
 container()
@@ -29,6 +29,11 @@ container()
   width: 96%
   margin: 0 auto
   padding: 0 0
+  
+  & :global .content
+  
+    padding-left: internal-padding
+    padding-right: internal-padding
   
   @media all
     

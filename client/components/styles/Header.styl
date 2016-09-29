@@ -1,10 +1,12 @@
 @require 'lib/colors'
+@require 'lib/vars'
 
 .site-header {
-  padding-bottom: 1em;
+  container()
   display: flex
   flex-flow: row wrap
   justify-content: space-around
+  padding: 0 internal-padding 1em internal-padding;
 }
 
 .brand
@@ -24,13 +26,12 @@
   
   ul, ol
     padding 0 0
-    margin: 0 0
+    margin 0 0
     list-style none
     display flex
-    flex-flow: row wrap
+    flex-flow row wrap
 
     li
       flex-grow: 1
       margin: 0 0
       padding 1em 1em
-      

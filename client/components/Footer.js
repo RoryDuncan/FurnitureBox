@@ -54,7 +54,7 @@ const Sep = () => {
 export class SiteFooter extends React.Component {
   render(){
     return (
-      <footer className={cx("site-footer")}>
+      <footer className={cx("site-footer", "text-content")}>
         <h5 className={cx("footer-title")}>{siteName}</h5>
         <div className={cx("navigation-regions")}>
           
@@ -95,8 +95,8 @@ export class Navigation extends React.Component {
       <nav className={cx('navigation-region', 'site-links')}>
         <h5 className={cx('title')}>{this.props.title}</h5>
         <ul>
-          {this.props.children.map((el) => {
-            return (<li>{el}</li>)
+          {this.props.children.map((el, i) => {
+            return (<li key={i}>{el}</li>)
           })}
         </ul>
       </nav>
