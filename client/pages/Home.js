@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames/bind';
-import s from '../components/styles/App.styl';
+import s from '../components/styles/Home.styl';
 const cx = classnames.bind(s);
 import Page from '../components/Page';
 import formatMessage from 'format-message';
@@ -24,7 +24,7 @@ export class Home extends React.Component {
       <Page>
         <div className={cx('site-title')}>
           <div className={cx('hero')}>
-            <img className={cx('hero-img')} alt="FurnitureBox Hero Image" src="http://placehold.it/1200x560" />
+            <img className={cx('hero-img')} alt="FurnitureBox Hero Image" src="//placehold.it/1200x560" />
             
           </div>
           <div className={cx("content")}>

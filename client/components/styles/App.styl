@@ -11,8 +11,30 @@ body
   font-size typography-font-size
   line-height typography-line-height
   
-.hero
-  margin-bottom 3em
-  .hero-img
-    display: block
-    width: 100%;
+:global
+
+  .hero
+    margin-bottom 3em
+    .hero-img
+      display: block
+      width: 100%;
+      
+    .hero-panel
+      min-height: 2.5em;
+      border-bottom: 1px solid #ececec
+      position: relative;
+      
+      .site-title
+        position: absolute
+        display: inline-block;
+        width: 12em
+        margin-top: 2em*-2
+        padding: 2em 1em
+        background-color: #fff
+        color: color-font-neutral
+        
+      h1
+        font-weight: 600
+        text-align: center
+        text-transform: uppercase
+        font-size: 1em

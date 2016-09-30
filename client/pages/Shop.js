@@ -17,9 +17,6 @@ export class Shop extends React.Component {
   render() {
     return (
       <Page>
-        <div className={cx('site-title')}>
-          <h1>{pageTitle}</h1>
-        </div>
         <Catalog />
       </Page>
     );

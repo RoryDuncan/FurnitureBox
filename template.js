@@ -8,7 +8,7 @@ const Html = (props) => (
       <meta name='viewport' content='width=device-width, minimum-scale=1.0' />
       <title>{props.title}</title>
       <link rel='stylesheet' href='/app.css' />
-      <link href="//fonts.googleapis.com/icon?family=Material+Icons"
+      <link href="//fonts.googleapis.com/icon?family=Material+Icons+Noto+Serif|Source+Sans+Pro:400,600,700&subset=vietnamese"
       rel="stylesheet" />
     </head>
     <body>
