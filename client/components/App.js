@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react';
-import { Link, IndexLink } from 'react-router';
 import classnames from 'classnames/bind';
 import 'normalize.css';
 import './styles/lib/skeleton.css';
 import './favicon.ico';
 import s from './styles/App.styl';
 
-const cx = classnames.bind(s);
+const cx = classnames.bind( s );
 
 /**
  * NOTE: As of 2015-11-09 react-transform does not support a functional
@@ -15,11 +14,11 @@ const cx = classnames.bind(s);
  */
 export class App extends React.Component {
   static propTypes = {
-    children: PropTypes.any,
+    children: PropTypes.node,
   }
   render() {
     return (
-      <div className={cx('App')}>
+      <div className={cx( 'App' )}>
         {this.props.children}
       </div>
     );
