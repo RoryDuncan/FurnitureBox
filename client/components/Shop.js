@@ -1,33 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router';
-import collections from '../collections.json'
 
 // styling
 import classnames from 'classnames/bind';
 import s from './styles/Shop.styl';
-const cx = classnames.bind(s);
+const cx = classnames.bind( s );
 
 // subcomponents
-import {
-  Collection,
-  RenderedCatalog
-} from './Collection.js';
+import { RenderedCatalog } from './Collection.js';
 
-import {ShoppingCart, cart} from './ShoppingCart.js';
+import { ShoppingCart } from './ShoppingCart.js';
 
 export class Catalog extends React.Component {
-  
-  constructor() {
-    super();
+
+  constructor( props ) {
+    super( props );
   }
 
-  render(){
+  render() {
     return (
-      <div className={cx("catalog")}>
-      <ShoppingCart />
-      {RenderedCatalog}
+      <div className={cx( 'catalog' )}>
+        <ShoppingCart/> {RenderedCatalog}
       </div>
-    )
+    );
   }
 }
-

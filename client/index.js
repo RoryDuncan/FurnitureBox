@@ -6,11 +6,9 @@ import { Router, browserHistory } from 'react-router';
 import routes from './routes.js';
 
 // Only render in the browser
-if (typeof document !== 'undefined') {
+if ( typeof document !== 'undefined' ) {
   render(
-    <Router routes={routes} history={browserHistory} />,
-    document.getElementById('root')
-  );
+    <Router routes={routes} history={browserHistory}/>, document.getElementById( 'root' ));
 }
 
 // Export the routes here so that ReactStaticPlugin can access them and build
